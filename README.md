@@ -1,5 +1,5 @@
 # Star Trek API Dashboard
-Using [stapi.co](https://stapi.co/) we are building out a fun and function dashboard to search for a variety of information that exists in the Star Trek franchise. This also allows us to each develope a unique view, while maintaining a style. It's a pretty flexible API, and that's ultimately what we're looking for.
+Using [stapi.co](https://stapi.co/) we are building out a fun and function dashboard to search for a variety of information that exists in the ***Star Trek*** franchise. This also allows us to each develope a unique view, while maintaining a style. It's a pretty flexible API, and that's ultimately what we're looking for.
 
 # Cost
 This is a free API with no keys! It is perfect for making simple axios/fetch requests to with structured `GET` requests that will return data we then format and display to the user.
