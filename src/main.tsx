@@ -3,10 +3,12 @@ import ReactDOM from "react-dom/client";
 import "./styles/index.css";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from "./routes/home";
-import SpeciesSpacecraft from "./routes/species-spacecraft";
-import SeriesActorStats from "./routes/series-actor-stats";
-import RuntimeStats from "./routes/runtime-stats";
+import {
+    Home,
+    SpeciesSpacecraft,
+    SeriesActorStats,
+    RuntimeStats,
+} from "./routes";
 
 const router = createBrowserRouter([
     {
