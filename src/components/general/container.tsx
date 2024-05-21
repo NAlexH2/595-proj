@@ -1,11 +1,11 @@
 export default function Container({
-    children,
+  children,
 }: {
-    children?: React.ReactNode;
+  children?: React.ReactNode;
 }) {
-    return (
-        <>
-            <main className={``}>{children}</main>
-        </>
-    );
+  return (
+    <>
+      <main className={""}>{children}</main>
+    </>
+  );
 }
