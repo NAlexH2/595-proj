@@ -1,3 +1,4 @@
+//Sources: https://www.youtube.com/watch?v=InMnGwP7iX4
 import { Container, NavBar } from "../components/general";
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -81,11 +82,11 @@ export default function RuntimeStats() {
           let startDate = new Date(season.originalRunStartDate).getTime();
           let endDate = new Date(season.originalRunEndDate).getTime();
 
-          if(startDate == null || isNaN(startDate)) {
+          if(startDate == null || isNaN(startDate) || startDate == 0) {
             startDate = new Date().getTime();
           }
 
-          if(isNaN(endDate) || endDate == null) {
+          if(isNaN(endDate) || endDate == null || endDate == 0) {
             endDate = new Date().getTime();
           }
           return [startDate, endDate];
