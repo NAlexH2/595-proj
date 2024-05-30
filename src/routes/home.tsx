@@ -1,12 +1,13 @@
-import { Container, NavBar } from "../components/general";
+import { Header, NavBar } from "../components/general";
 
 export default function Home() {
   return (
     <>
-      <Container>
-        <NavBar />
+      <Header />
+      <NavBar />
+      <main>
         <h1>Home</h1>
-      </Container>
+      </main>
     </>
   );
 }

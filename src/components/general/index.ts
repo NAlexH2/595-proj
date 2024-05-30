@@ -1,4 +1,4 @@
-import Container from "./container";
+import Header from "./header";
 import NavBar from "./navbar";
 
-export { Container, NavBar };
+export { Header, NavBar };
