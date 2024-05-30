@@ -1,5 +1,43 @@
+export default function getLetterList(letter: string): string[] {
+  const craftBuildLists = [
+    ACraftBuild,
+    BCraftBuild,
+    CCraftBuild,
+    DCraftBuild,
+    ECraftBuild,
+    FCraftBuild,
+    GCraftBuild,
+    HCraftBuild,
+    ICraftBuild,
+    JCraftBuild,
+    KCraftBuild,
+    LCraftBuild,
+    MCraftBuild,
+    NCraftBuild,
+    OCraftBuild,
+    PCraftBuild,
+    QCraftBuild,
+    RCraftBuild,
+    SCraftBuild,
+    TCraftBuild,
+    VCraftBuild,
+    WCraftBuild,
+    XCraftBuild,
+    YCraftBuild,
+    ZCraftBuild,
+  ];
+  const alpha = [
+    "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", 
+    "N", "O", "P", "Q", "R", "S", "T", "V", "W", "X", "Y", "Z"];
+  const lettrMap: Map<string, string[]> = new Map(alpha.map((e, i) => [e, craftBuildLists[i]]));
+  const result = lettrMap.get(letter);
+  if(result!=undefined){
+    return result;
+  }
+  return [];
+}
 
-const ACraftBuild : string[] = [
+const ACraftBuild: string[] = [
   "Abronian",
   "Akritirian",
   "Aksani",
@@ -14,10 +52,10 @@ const ACraftBuild : string[] = [
   "Areore",
   "Arkonian",
   "Arretan",
-  "Axanar"
-]
+  "Axanar",
+];
 
-const BCraftBuild : string[] = [
+const BCraftBuild: string[] = [
   "B'omar",
   "Ba'Neth",
   "Ba'ul",
@@ -33,20 +71,20 @@ const BCraftBuild : string[] = [
   "Breen",
   "Brenari",
   "Briori",
-  "Brunali" 
-]
+  "Brunali",
+];
 
-const CCraftBuild : string[] = [
+const CCraftBuild: string[] = [
   "Caatati",
   "Cardassian",
   "Chessu",
   "Chokuzan",
   "Corvallen",
   "Coverian",
-  "Cravic"
-]
+  "Cravic",
+];
 
-const DCraftBuild : string[] = [
+const DCraftBuild: string[] = [
   "Dekendi",
   "Deltan",
   "Denebian",
@@ -55,49 +93,29 @@ const DCraftBuild : string[] = [
   "Dralian",
   "Dramen",
   "Drayan",
-  "Drookmani"
-]
+  "Drookmani",
+];
 
-const ECraftBuild : string[] = [
-  "Ekosian",
-  "Elasian",
-  "Enolian",
-  "Etanian"
-]
+const ECraftBuild: string[] = ["Ekosian", "Elasian", "Enolian", "Etanian"];
 
-const FCraftBuild : string[] = [
-  "Ferengi",
-  "Flaxian"
-]
+const FCraftBuild: string[] = ["Ferengi", "Flaxian"];
 
-const GCraftBuild : string[] = [
-  "Galipotan",
-  "Gelrakian",
-  "Gorn"
-]
+const GCraftBuild: string[] = ["Galipotan", "Gelrakian", "Gorn"];
 
-const HCraftBuild : string[] = [
+const HCraftBuild: string[] = [
   "Haakonian",
   "Hazari",
   "Hekaran",
   "Hirogen",
   "Human",
-  "Husnock"
-]
+  "Husnock",
+];
 
-const ICraftBuild : string[] = [
-  "Illyrian",
-  "Imhotep",
-  "Iyaaran"
-]
+const ICraftBuild: string[] = ["Illyrian", "Imhotep", "Iyaaran"];
 
-const JCraftBuild : string[] = [
-  "J'naii",
-  "Jelinian",
-  "Jem'Hadar"
-]
+const JCraftBuild: string[] = ["J'naii", "Jelinian", "Jem'Hadar"];
 
-const KCraftBuild : string[] = [
+const KCraftBuild: string[] = [
   "K'normian",
   "Kaelon",
   "Kalandan",
@@ -119,17 +137,12 @@ const KCraftBuild : string[] = [
   "Kriosian",
   "Ktarian",
   "Kyrian",
-  "Kzinti"
-]
+  "Kzinti",
+];
 
-const LCraftBuild : string[] = [
-  "Ledosian",
-  "Lissepian",
-  "Lokirrim",
-  "Lysian"
-]
+const LCraftBuild: string[] = ["Ledosian", "Lissepian", "Lokirrim", "Lysian"];
 
-const MCraftBuild : string[] = [
+const MCraftBuild: string[] = [
   "Majalan",
   "Malcorian",
   "Malon",
@@ -139,39 +152,32 @@ const MCraftBuild : string[] = [
   "Mazarite",
   "Medusan",
   "Mislenite",
-  "Monean"
-]
+  "Monean",
+];
 
-const NCraftBuild : string[] = [
+const NCraftBuild: string[] = [
   "Nausicaan",
   "Nihydron",
   "Numiri",
   "Nuu'Bari",
   "Nygean",
-  "Nyria"
-]
+  "Nyria",
+];
 
-const OCraftBuild : string[] = [
-  "Orion",
-  "Ornaran",
-  "Osaarian"
-]
+const OCraftBuild: string[] = ["Orion", "Ornaran", "Osaarian"];
 
-const PCraftBuild : string[] = [
+const PCraftBuild: string[] = [
   "Pakled",
   "Pelian",
   "Phylosian",
   "Pralor",
   "Promellian",
-  "Provider"
-]
+  "Provider",
+];
 
-const QCraftBuild : string[] = [
-  "Qomar",
-  "Quarren"
-]
+const QCraftBuild: string[] = ["Qomar", "Quarren"];
 
-const RCraftBuild : string[] = [
+const RCraftBuild: string[] = [
   "R'ongovian",
   "Rakhari",
   "Rakosan",
@@ -181,10 +187,10 @@ const RCraftBuild : string[] = [
   "Rigelian",
   "Romulan",
   "Rukani",
-  "Rutian"
-]
+  "Rutian",
+];
 
-const SCraftBuild : string[] = [
+const SCraftBuild: string[] = [
   "Satarran",
   "Serosian",
   "Sheliak",
@@ -194,10 +200,10 @@ const SCraftBuild : string[] = [
   "Sphere-Builder",
   "Srivani",
   "Subytt",
-  "Suliban"
-]
+  "Suliban",
+];
 
-const TCraftBuild : string[] = [
+const TCraftBuild: string[] = [
   "T'Lani",
   "Takret",
   "Talarian",
@@ -218,10 +224,10 @@ const TCraftBuild : string[] = [
   "Trill",
   "Turei",
   "Tygarian",
-  "Tzenkethi"
-]
+  "Tzenkethi",
+];
 
-const VCraftBuild : string[] = [
+const VCraftBuild: string[] = [
   "Vaadwaur",
   "Valakian",
   "Valerian",
@@ -230,16 +236,12 @@ const VCraftBuild : string[] = [
   "Vidiian",
   "Vissian",
   "Voth",
-  "Vulcan"
-]
+  "Vulcan",
+];
 
-const WCraftBuild : string[] = [
-  "Wadi",
-  "Wisp",
-  "Wysanti"
-]
+const WCraftBuild: string[] = ["Wadi", "Wisp", "Wysanti"];
 
-const XCraftBuild : string[] = [
+const XCraftBuild: string[] = [
   "Xantoras",
   "Xarantine",
   "Xepolite",
@@ -248,16 +250,9 @@ const XCraftBuild : string[] = [
   "Xindi-Insectoid",
   "Xindi-Primate",
   "Xindi-Reptilian",
-  "Xyrillian"
-]
+  "Xyrillian",
+];
 
-const YCraftBuild : string[] = [
-  "Yridian"
-]
+const YCraftBuild: string[] = ["Yridian"];
 
-const ZCraftBuild : string[] = [
-  "Zahl",
-  "Zalkonian",
-  "Zeon",
-  "Zibalian"
-]
+const ZCraftBuild: string[] = ["Zahl", "Zalkonian", "Zeon", "Zibalian"];
