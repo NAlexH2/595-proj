@@ -1,3 +1,9 @@
+import carina from "../../assets/carina_nebula-crop.png";
+
+const headerAlt =
+  "James Webb Space Telescope NIRCam Image of the \
+  'Cosmic Cliffs' in Carina Nebula";
+
 export default function NavBar({ title = "" }: { title: string }) {
   const home = "/home";
   const spacecraft = "/spacecraft";
@@ -17,7 +23,8 @@ bg-pos-0 hover:bg-pos-100";
 
   return (
     <header>
-      <div className="flex justify-center">
+      <img src={carina} alt={headerAlt} className="w-full z-[1] relative" />
+      <div className="flex justify-center top-0 left-0 right-0 z-10 absolute">
         <nav className="my-4">
           <a
             className={title.search(home) !== -1 ? currentStyle : linkStyle}
