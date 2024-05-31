@@ -1,4 +1,5 @@
 import { NavBar } from "../components/general";
+import StyledLink from "../components/general/styled-link";
 
 export default function Home() {
   return (
@@ -20,12 +21,12 @@ export default function Home() {
             <p>
               This website allows a person to explore various stats based on the
               entirety of the Star Trek franchise. Using{" "}
-              <a href="https://stapi.co">stapi.co</a> we built out a simple
-              dashboard to search for a variety of information that exists in
-              the Star Trek franchise. This also allowed each of us to each
-              develope a unique view, while maintaining a style. We went with
-              this API because of it's free cost use, and the flexibility that
-              comes with that and the structure that was provided.
+              <StyledLink href="https://stapi.co" text="stapi.co" /> we built
+              out a simple dashboard to search for a variety of information that
+              exists in the Star Trek franchise. This also allowed each of us to
+              each develope a unique view, while maintaining a style. We went
+              with this API because of it's free cost use, and the flexibility
+              that comes with that and the structure that was provided.
             </p>
           </div>
           <h2 className="max-lg:text-2xl underline mt-2">
@@ -34,13 +35,17 @@ export default function Home() {
           <div className="max-lg:text-base text-xl ml-3 mt-2">
             <ul>
               <li>
-                <a href="https://github.com/cezarykluczynski">
-                  cezarykluczynski
-                </a>{" "}
+                <StyledLink
+                  href="https://github.com/cezarykluczynski"
+                  text="cezarykluczynski"
+                />{" "}
                 on GitHub for taking the time to make this API.
               </li>
               <li>
-                <a href="https://images.nasa.gov/details/carina_nebula">NASA</a>{" "}
+                <StyledLink
+                  href="https://images.nasa.gov/details/carina_nebula"
+                  text="NASA"
+                />{" "}
                 and it's awesome James Web Space Telescope (JWST) for capturing
                 a great image of the Carina Nebula, which is used as our banner
                 image in tangent with the navbar.
