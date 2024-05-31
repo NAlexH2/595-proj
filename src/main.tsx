@@ -2,7 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./styles/index.css";
 
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from "react-router-dom";
 import {
   Home,
   SpeciesSpacecraft,
@@ -13,6 +17,10 @@ import {
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <Navigate to="home/" />,
+  },
+  {
+    path: "home/",
     element: <Home />,
   },
   {

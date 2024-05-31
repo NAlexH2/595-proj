@@ -1,4 +1,4 @@
-import Container from "./container";
+import Banner from "./banner";
 import NavBar from "./navbar";
 
-export { Container, NavBar };
+export { Banner, NavBar };

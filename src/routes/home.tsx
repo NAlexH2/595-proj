@@ -1,12 +1,13 @@
-import { Container, NavBar } from "../components/general";
+import { Banner, NavBar } from "../components/general";
 
 export default function Home() {
   return (
     <>
-      <Container>
-        <NavBar />
+      <Banner />
+      <NavBar title={window.location.href} />
+      <main>
         <h1>Home</h1>
-      </Container>
+      </main>
     </>
   );
 }
