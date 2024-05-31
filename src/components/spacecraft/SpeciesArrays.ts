@@ -37,8 +37,6 @@ export default function getLetterList(letter: string): string[] {
   return [];
 }
 
-module.exports = getLetterList;
-
 const ACraftBuild: string[] = [
   "Abronian",
   "Akritirian",
