@@ -6,9 +6,9 @@ export default function Home() {
       <NavBar title={window.location.href} />
       <h1 className="text-center mt-2 -mb-3">Welcome!</h1>
       <main className="mt-5 grid grid-cols-12 grid-rows-12">
-        <section className="col-start-2 col-end-12 row-start-1 row-end-12 bg-slate-500 p-5">
-          <h2 className="max-md:text-2xl underline">About This Website:</h2>
-          <div className="max-md:text-base text-2xl ml-3 mt-2">
+        <section className="col-start-2 col-end-12 row-start-1 row-end-12 bg-black bg-opacity-50 p-5">
+          <h2 className="max-lg:text-2xl underline">About This Website:</h2>
+          <div className="max-lg:text-base text-xl ml-3 mt-2">
             <p>
               As part of a final project for a class offered at Portland State
               Universities Computer Science department - Front End Web
@@ -28,16 +28,30 @@ export default function Home() {
               comes with that and the structure that was provided.
             </p>
           </div>
-          <h2 className="max-md:text-2xl underline mt-2">
+          <h2 className="max-lg:text-2xl underline mt-2">
             Thanks and Accreditation:
           </h2>
-          <div className="max-md:text-base text-2xl ml-3 mt-2">
+          <div className="max-lg:text-base text-xl ml-3 mt-2">
             <ul>
-              <li>a</li>
+              <li>
+                <a href="https://github.com/cezarykluczynski">
+                  cezarykluczynski
+                </a>{" "}
+                on GitHub for taking the time to make this API.
+              </li>
+              <li>
+                <a href="https://images.nasa.gov/details/carina_nebula">NASA</a>{" "}
+                and it's awesome James Web Space Telescope (JWST) for capturing
+                a great image of the Carina Nebula, which is used as our banner
+                image in tangent with the navbar.
+              </li>
             </ul>
           </div>
         </section>
       </main>
+      <footer className="grid grid-cols-12">
+        <div className="col-start-2 col-end-12"></div>
+      </footer>
     </>
   );
 }
