@@ -1,5 +1,4 @@
-import { NavBar } from "../components/general";
-import StyledLink from "../components/general/styled-link";
+import { NavBar, GroupFooter, StyledLink } from "../components/general";
 
 export default function Home() {
   return (
@@ -55,7 +54,9 @@ export default function Home() {
         </section>
       </main>
       <footer className="grid grid-cols-12">
-        <div className="col-start-2 col-end-12"></div>
+        <div className="col-start-2 col-end-12">
+          <GroupFooter />
+        </div>
       </footer>
     </>
   );
