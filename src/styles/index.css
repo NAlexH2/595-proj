@@ -29,6 +29,13 @@ us to use inline tailwind with classNames={`stuff`}
   p {
     margin-top: 0.5rem;
   }
+  li {
+    margin-top: 0.5rem;
+    margin-left: 1rem;
+  }
+  ul {
+    list-style: disc;
+  }
   .font-outline {
     -webkit-text-stroke: 0.05cm black;
   }
