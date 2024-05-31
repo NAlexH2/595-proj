@@ -9,15 +9,15 @@ export default function NavBar({ title = "" }: { title: string }) {
   const spacecraft = "/spacecraft";
   const performers = "/performers";
   const runStats = "/run-date-stats";
-  const currentStyle =
-    "me-4 rounded-2xl p-2 text-3xl max-lg:text-lg  bg-clip-text  \
-  text-transparent md:font-semibold lg:font-extrabold transition-all \
+  const activeLinkStyle =
+    "me-4 rounded-2xl p-2 text-3xl max-md:text-lg  bg-clip-text  \
+  text-transparent sm:font-semibold lg:font-bold transition-all \
   duration-500 bg-gradient-to-tl via-orange-300 to-60% from-purple-800 \
   to-blue-200 from-20% bg-size-200 bg-pos-0 hover:bg-pos-100 uppercase";
 
   const linkStyle =
-    "me-4 rounded-2xl p-2 text-3xl max-lg:text-lg bg-clip-text \
-text-transparent md:font-semibold lg:font-extrabold transition-all \
+    "me-4 rounded-2xl p-2 text-3xl max-md:text-lg bg-clip-text \
+text-transparent sm:font-semibold lg:font-bold transition-all \
 duration-500 bg-gradient-to-tl to-orange-300 to-60% via-purple-800 \
 from-blue-200 from-20% bg-size-200 bg-pos-0 hover:bg-pos-100";
 
@@ -31,14 +31,14 @@ from-blue-200 from-20% bg-size-200 bg-pos-0 hover:bg-pos-100";
       <div className="flex justify-center sm:top-0 sm:left-0 sm:right-0 sm:z-10 sm:absolute">
         <nav className="my-4 bg-black bg-opacity-70 rounded-full p-1 pl-6">
           <a
-            className={title.search(home) !== -1 ? currentStyle : linkStyle}
+            className={title.search(home) !== -1 ? activeLinkStyle : linkStyle}
             href={`/home`}
           >
             Home
           </a>
           <a
             className={
-              title.search(spacecraft) !== -1 ? currentStyle : linkStyle
+              title.search(spacecraft) !== -1 ? activeLinkStyle : linkStyle
             }
             href={`/spacecraft`}
           >
@@ -46,14 +46,16 @@ from-blue-200 from-20% bg-size-200 bg-pos-0 hover:bg-pos-100";
           </a>
           <a
             className={
-              title.search(performers) !== -1 ? currentStyle : linkStyle
+              title.search(performers) !== -1 ? activeLinkStyle : linkStyle
             }
             href={`/performers`}
           >
             Actor Stats
           </a>
           <a
-            className={title.search(runStats) !== -1 ? currentStyle : linkStyle}
+            className={
+              title.search(runStats) !== -1 ? activeLinkStyle : linkStyle
+            }
             href={`/run-date-stats`}
           >
             Show Dates
