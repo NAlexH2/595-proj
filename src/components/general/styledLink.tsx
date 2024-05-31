@@ -1,10 +1,10 @@
-interface styledLinkProps {
+interface StyledLinkProps {
   href: string;
   text: string;
   className?: string;
 }
 
-export default function StyledLink(prop: styledLinkProps) {
+export default function StyledLink(prop: StyledLinkProps) {
   const linkStyle =
     "bg-clip-text text-transparent \
     transition-all duration-500 bg-gradient-to-tl to-orange-300 to-[75%] \
