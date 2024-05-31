@@ -1,4 +1,4 @@
-import carina from "../../assets/carina_nebula-crop.png";
+import carina from "../../assets/carina_nebula-orig.png";
 
 const headerAlt =
   "James Webb Space Telescope NIRCam Image of the \
@@ -10,22 +10,26 @@ export default function NavBar({ title = "" }: { title: string }) {
   const performers = "/performers";
   const runStats = "/run-date-stats";
   const currentStyle =
-    "me-4 rounded-2xl p-2 text-3xl bg-clip-text font-outline \
-  text-transparent font-extrabold transition-all duration-500 bg-gradient-to-tl \
-  via-orange-300 to-60% from-purple-800 to-blue-200 from-20% bg-size-200 \
-  bg-pos-0 hover:bg-pos-100 uppercase";
+    "me-4 rounded-2xl p-2 text-3xl max-lg:text-lg  bg-clip-text  \
+  text-transparent md:font-semibold lg:font-extrabold transition-all \
+  duration-500 bg-gradient-to-tl via-orange-300 to-60% from-purple-800 \
+  to-blue-200 from-20% bg-size-200 bg-pos-0 hover:bg-pos-100 uppercase";
 
   const linkStyle =
-    "me-4 rounded-2xl p-2 text-3xl bg-clip-text font-outline \
-text-transparent font-extrabold transition-all duration-500 bg-gradient-to-tl \
-to-orange-300 to-60% via-purple-800 from-blue-200 from-20% bg-size-200 \
-bg-pos-0 hover:bg-pos-100";
+    "me-4 rounded-2xl p-2 text-3xl max-lg:text-lg bg-clip-text \
+text-transparent md:font-semibold lg:font-extrabold transition-all \
+duration-500 bg-gradient-to-tl to-orange-300 to-60% via-purple-800 \
+from-blue-200 from-20% bg-size-200 bg-pos-0 hover:bg-pos-100";
 
   return (
     <header>
-      <img src={carina} alt={headerAlt} className="w-full z-[1] relative" />
-      <div className="flex justify-center top-0 left-0 right-0 z-10 absolute">
-        <nav className="my-4">
+      <img
+        src={carina}
+        alt={headerAlt}
+        className="w-full z-[1] relative object-cover object-center max-h-20"
+      />
+      <div className="flex justify-center sm:top-0 sm:left-0 sm:right-0 sm:z-10 sm:absolute">
+        <nav className="my-4 bg-black bg-opacity-70 rounded-full p-1 pl-6">
           <a
             className={title.search(home) !== -1 ? currentStyle : linkStyle}
             href={`/home`}
