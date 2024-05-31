@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 /* 
 You will need to style each base element as you use it, but this is good!
 It prevents/protects us from using superflous HTML elements, but it also forces
@@ -22,8 +21,8 @@ us to use inline tailwind with classNames={`stuff`}
     font-weight: 500;
     margin-bottom: 8px;
   }
-  .font-outline-2 {
-    -webkit-text-stroke: 2px black;
+  .font-outline {
+    -webkit-text-stroke: 0.05cm black;
   }
 }
 
