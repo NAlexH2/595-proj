@@ -13,12 +13,12 @@ export default function NavBar({ title = "" }: { title: string }) {
     "me-4 rounded-2xl p-2 text-3xl max-md:text-lg  bg-clip-text  \
   text-transparent sm:font-semibold lg:font-bold transition-all \
   duration-500 bg-gradient-to-tl via-orange-300 from-purple-800 from-20% \
-  to-blue-200 to-40% bg-size-200 bg-pos-0 hover:bg-pos-100 uppercase";
+  to-blue-200 to-[90%] bg-size-200 bg-pos-0 hover:bg-pos-100 uppercase";
 
   const linkStyle =
     "me-4 rounded-2xl p-2 text-3xl max-md:text-lg bg-clip-text \
 text-transparent sm:font-semibold lg:font-bold transition-all \
-duration-500 bg-gradient-to-tl to-orange-300 to-40% via-purple-800 \
+duration-500 bg-gradient-to-tl to-orange-300 to-[80%] via-purple-800 \
 from-blue-200 from-20% bg-size-200 bg-pos-0 hover:bg-pos-100";
 
   return (
