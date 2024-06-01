@@ -12,8 +12,13 @@ export default function actorsData() {
       )
       .then(response => {
         filterActors(response.data.performers);
-      });
-    console.log(i + 1 + " of 69 complete.");
+      })
+      .catch(error => console.error(error.message));
+    if (i % 10 === 0) {
+      console.log(i + " of 69 complete.");
+    } else if (i === 69) {
+      console.log(i + 1 + " of 69 complete.");
+    }
   }
   return actorsArray;
 }
@@ -31,7 +36,6 @@ function filterActors(response: ActorStapiResponse[]) {
       delete response[i].voicePerformer;
       delete response[i].dateOfBirth;
       delete response[i].dateOfDeath;
-      delete response[i].uid;
       delete response[i].placeOfBirth;
       delete response[i].placeOfDeath;
       actorsArray.push(response[i]);
