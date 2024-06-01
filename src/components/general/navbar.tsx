@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import carina from "../../assets/carina_nebula-orig.png";
 
 const headerAlt =
@@ -12,13 +13,13 @@ export default function NavBar({ title = "" }: { title: string }) {
   const activeLinkStyle =
     "me-4 rounded-2xl p-2 text-3xl max-md:text-lg  bg-clip-text  \
   text-transparent sm:font-semibold lg:font-bold transition-all \
-  duration-500 bg-gradient-to-tl via-orange-300 to-60% from-purple-800 \
-  to-blue-200 from-20% bg-size-200 bg-pos-0 hover:bg-pos-100 uppercase";
+  duration-500 bg-gradient-to-tl via-orange-300 from-purple-800 from-20% \
+  to-blue-200 to-[90%] bg-size-200 bg-pos-0 hover:bg-pos-100 uppercase";
 
   const linkStyle =
     "me-4 rounded-2xl p-2 text-3xl max-md:text-lg bg-clip-text \
 text-transparent sm:font-semibold lg:font-bold transition-all \
-duration-500 bg-gradient-to-tl to-orange-300 to-60% via-purple-800 \
+duration-500 bg-gradient-to-tl to-orange-300 to-[80%] via-purple-800 \
 from-blue-200 from-20% bg-size-200 bg-pos-0 hover:bg-pos-100";
 
   return (
@@ -30,36 +31,36 @@ from-blue-200 from-20% bg-size-200 bg-pos-0 hover:bg-pos-100";
       />
       <div className="flex justify-center sm:top-0 sm:left-0 sm:right-0 sm:z-10 sm:absolute">
         <nav className="my-4 bg-black bg-opacity-70 rounded-full p-1 pl-6">
-          <a
+          <Link
             className={title.search(home) !== -1 ? activeLinkStyle : linkStyle}
-            href={`/home`}
+            to={`/home`}
           >
             Home
-          </a>
-          <a
+          </Link>
+          <Link
             className={
               title.search(spacecraft) !== -1 ? activeLinkStyle : linkStyle
             }
-            href={`/spacecraft`}
+            to={`/spacecraft`}
           >
             Spacecraft
-          </a>
-          <a
+          </Link>
+          <Link
             className={
               title.search(performers) !== -1 ? activeLinkStyle : linkStyle
             }
-            href={`/performers`}
+            to={`/performers`}
           >
             Actor Stats
-          </a>
-          <a
+          </Link>
+          <Link
             className={
               title.search(runStats) !== -1 ? activeLinkStyle : linkStyle
             }
-            href={`/run-date-stats`}
+            to={`/run-date-stats`}
           >
             Show Dates
-          </a>
+          </Link>
         </nav>
       </div>
     </header>
