@@ -1,7 +1,11 @@
+import { ReactNode } from "react";
+import { Link } from "react-router-dom";
+
 interface StyledLinkProps {
   href: string;
   text: string;
   className?: string;
+  children?: ReactNode;
 }
 
 export default function StyledLink(prop: StyledLinkProps) {
@@ -12,9 +16,15 @@ export default function StyledLink(prop: StyledLinkProps) {
     hover:bg-pos-100";
   return (
     <>
-      <a href={prop.href} className={`${prop.className} ${linkStyle}`}>
+      <Link
+        to={prop.href}
+        className={`${prop.className} ${linkStyle}`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         {prop.text}
-      </a>
+        {prop.children}
+      </Link>
     </>
   );
 }
