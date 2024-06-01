@@ -21,11 +21,6 @@ us to use inline tailwind with classNames={`stuff`}
     font-weight: 500;
     margin-bottom: 8px;
   }
-  a {
-    color: orangered;
-    text-decoration: underline;
-    font-weight: 600;
-  }
   p {
     margin-top: 0.5rem;
   }
@@ -35,9 +30,6 @@ us to use inline tailwind with classNames={`stuff`}
   }
   ul {
     list-style: disc;
-  }
-  .font-outline {
-    -webkit-text-stroke: 0.05cm black;
   }
 }
 
