@@ -32,11 +32,7 @@ export default async function speciesSpacecraft() {
 
 function filterShips(response: StapiResponse[]){
   for (let i=0; i<response.length; i+=1){
-    if(response[i].species===null){
-      delete response[i];
-      i-=1;
-    }
-    else{
+    if(response[i].species!==null){
       delete response[i].activeFrom;
       delete response[i].activeTo;
       delete response[i].alternateReality;
