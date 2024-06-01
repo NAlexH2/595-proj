@@ -27,6 +27,16 @@ export default function Home() {
               with this API because of it's free cost use, and the flexibility
               that comes with that and the structure that was provided.
             </p>
+            <p>
+              Each of the pages you can visit will have a variety of
+              information. 'Spacecraft' will allow you to select a species and
+              see how many spacecraft they have and the name of each craft.
+              'Actor Stats' will show how many actors were needed for each
+              series in total, and display a list of all the actors for that
+              series (if you so choose to explore that data). Lastly we have
+              'Show Dates', which displays each series, and the dates that it
+              ran for.
+            </p>
           </div>
           <h2 className="max-lg:text-2xl underline mt-2">
             Thanks and Accreditation:

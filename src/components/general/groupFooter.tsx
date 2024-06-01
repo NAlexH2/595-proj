@@ -8,16 +8,19 @@ export default function GroupFooter() {
   const alexGH = "https://github.com/NAlexH2";
   return (
     <>
-      <div className="text-center max-md:text-lg md:text-4xl">
+      <div className="-mt-8 text-center font-semibold max-md:text-2xl md:text-4xl">
         <StyledLink
           href="https://github.com/NAlexH2/frontend-stapi"
           text={"Visit This Sites GitHub Repo Here"}
         />
       </div>
       <div className="text-center max-md:text-lg md:text-2xl mt-4">
-        ...or visit us!
+        ...or visit our GitHubs!
       </div>
-      <footer className="grid max-md:grid-cols-9 grid-cols-12 place-items-center place-content-center">
+      <footer
+        className="text-lg font-semibold grid max-md:grid-cols-9 grid-cols-12 place-items-center
+          place-content-center"
+      >
         <div className="max-md:col-start-3 max-md:col-end-4 col-start-5 col-end-6 text-center">
           <StyledLink href={melGH} text="Melissa">
             <img src={melissa} alt="" className="h-14" />
