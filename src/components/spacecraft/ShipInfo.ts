@@ -1,5 +1,5 @@
 import axios from 'axios';
-interface StapiResponse{
+export interface StapiResponse{
   uid: string;
   name: string;
   numberOfDecks?: number | null;
