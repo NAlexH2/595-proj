@@ -1,4 +1,5 @@
-import Container from "./container";
 import NavBar from "./navbar";
+import StyledLink from "./styledLink";
+import GroupFooter from "./groupFooter";
 
-export { Container, NavBar };
+export { NavBar, StyledLink, GroupFooter };
