@@ -16,7 +16,7 @@ export default function actorsData() {
       .catch(error => console.error(error.message));
     if (i % 10 === 0) {
       console.log(i + " of 69 complete.");
-    } else if (i === 69) {
+    } else if (i + 1 === 69) {
       console.log(i + 1 + " of 69 complete.");
     }
   }
