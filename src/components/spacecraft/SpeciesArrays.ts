@@ -1,37 +1,37 @@
+export const alpha = [
+  "A",
+  "B",
+  "C",
+  "D",
+  "E",
+  "F",
+  "G",
+  "H",
+  "I",
+  "J",
+  "K",
+  "L",
+  "M",
+  "N",
+  "O",
+  "P",
+  "Q",
+  "R",
+  "S",
+  "T",
+  "V",
+  "W",
+  "X",
+  "Y",
+  "Z",
+];
+
 export default function getLetterList(letter: string): string[] {
-  const craftBuildLists = [
-    ACraftBuild,
-    BCraftBuild,
-    CCraftBuild,
-    DCraftBuild,
-    ECraftBuild,
-    FCraftBuild,
-    GCraftBuild,
-    HCraftBuild,
-    ICraftBuild,
-    JCraftBuild,
-    KCraftBuild,
-    LCraftBuild,
-    MCraftBuild,
-    NCraftBuild,
-    OCraftBuild,
-    PCraftBuild,
-    QCraftBuild,
-    RCraftBuild,
-    SCraftBuild,
-    TCraftBuild,
-    VCraftBuild,
-    WCraftBuild,
-    XCraftBuild,
-    YCraftBuild,
-    ZCraftBuild,
-  ];
-  const alpha = [
-    "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", 
-    "N", "O", "P", "Q", "R", "S", "T", "V", "W", "X", "Y", "Z"];
-  const letterMap: Map<string, string[]> = new Map(alpha.map((e, i) => [e, craftBuildLists[i]]));
+  const letterMap: Map<string, string[]> = new Map(
+    alpha.map((e, i) => [e, craftBuildLists[i]]),
+  );
   const result = letterMap.get(letter);
-  if(result!=undefined){
+  if (result != undefined) {
     return result;
   }
   return [];
@@ -256,3 +256,31 @@ const XCraftBuild: string[] = [
 const YCraftBuild: string[] = ["Yridian"];
 
 const ZCraftBuild: string[] = ["Zahl", "Zalkonian", "Zeon", "Zibalian"];
+
+export const craftBuildLists = [
+  ACraftBuild,
+  BCraftBuild,
+  CCraftBuild,
+  DCraftBuild,
+  ECraftBuild,
+  FCraftBuild,
+  GCraftBuild,
+  HCraftBuild,
+  ICraftBuild,
+  JCraftBuild,
+  KCraftBuild,
+  LCraftBuild,
+  MCraftBuild,
+  NCraftBuild,
+  OCraftBuild,
+  PCraftBuild,
+  QCraftBuild,
+  RCraftBuild,
+  SCraftBuild,
+  TCraftBuild,
+  VCraftBuild,
+  WCraftBuild,
+  XCraftBuild,
+  YCraftBuild,
+  ZCraftBuild,
+];
