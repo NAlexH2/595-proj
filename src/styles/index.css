@@ -21,8 +21,15 @@ us to use inline tailwind with classNames={`stuff`}
     font-weight: 500;
     margin-bottom: 8px;
   }
-  .font-outline {
-    -webkit-text-stroke: 0.05cm black;
+  p {
+    margin-top: 0.5rem;
+  }
+  li {
+    margin-top: 0.5rem;
+    margin-left: 1rem;
+  }
+  ul {
+    list-style: disc;
   }
 }
 
@@ -32,8 +39,8 @@ us to use inline tailwind with classNames={`stuff`}
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(0, 0, 0, 0.87);
-  background-color: #e2e2e2;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #0e2a47;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

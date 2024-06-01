@@ -1,4 +1,5 @@
-import Banner from "./banner";
 import NavBar from "./navbar";
+import StyledLink from "./styledLink";
+import GroupFooter from "./groupFooter";
 
-export { Banner, NavBar };
+export { NavBar, StyledLink, GroupFooter };
