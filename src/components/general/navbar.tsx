@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import carina from "../../assets/carina_nebula-orig.png";
 
 const headerAlt =
@@ -30,36 +31,36 @@ from-blue-200 from-20% bg-size-200 bg-pos-0 hover:bg-pos-100";
       />
       <div className="flex justify-center sm:top-0 sm:left-0 sm:right-0 sm:z-10 sm:absolute">
         <nav className="my-4 bg-black bg-opacity-70 rounded-full p-1 pl-6">
-          <a
+          <Link
             className={title.search(home) !== -1 ? activeLinkStyle : linkStyle}
-            href={`/home`}
+            to={`/home`}
           >
             Home
-          </a>
-          <a
+          </Link>
+          <Link
             className={
               title.search(spacecraft) !== -1 ? activeLinkStyle : linkStyle
             }
-            href={`/spacecraft`}
+            to={`/spacecraft`}
           >
             Spacecraft
-          </a>
-          <a
+          </Link>
+          <Link
             className={
               title.search(performers) !== -1 ? activeLinkStyle : linkStyle
             }
-            href={`/performers`}
+            to={`/performers`}
           >
             Actor Stats
-          </a>
-          <a
+          </Link>
+          <Link
             className={
               title.search(runStats) !== -1 ? activeLinkStyle : linkStyle
             }
-            href={`/run-date-stats`}
+            to={`/run-date-stats`}
           >
             Show Dates
-          </a>
+          </Link>
         </nav>
       </div>
     </header>
