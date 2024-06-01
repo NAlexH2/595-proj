@@ -7,11 +7,13 @@ import {
   CategoryScale,
   LinearScale,
   BarElement,
+  PointElement,
   Title,
   Tooltip,
   Legend,
   TimeScale,
 } from 'chart.js';
+import { Scatter } from 'react-chartjs-2';
 import { Bar } from 'react-chartjs-2';
 import 'chartjs-adapter-date-fns';
 
@@ -24,6 +26,15 @@ ChartJS.register(
   Tooltip,
   Legend,
   TimeScale
+);
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  Title,
+  Tooltip,
+  Legend
 );
 
 export const options = {
@@ -47,19 +58,74 @@ export const options = {
         year: 'YYYY',
         month: 'MM YYYY',
       },
+      title: {
+        display: true,
+        text: 'Release Year',
+      },
     },
   y: {
       beginAtZero: true,
+      title: {
+        display: true,
+        text: 'Series Title',
+      },
     },
   },
 };
 
-//import Gantt from 'd3-gantt-chart';
+export const options1 =  {
+  responsive: true,
+  plugins: {
+    legend: {
+      position: 'top',
+    },
+    title: {
+      display: true,
+      text: 'Movie Release Years',
+    },
+  },
+  scales: {
+    x: {
+      type: 'linear',
+      position: 'bottom',
+      title: {
+        display: true,
+        text: 'Release Year',
+      },
+      ticks: {
+        callback: function(value) {
+          return Number(value).toFixed(0); // Show only integers
+        },
+      },
+    },
+    y: {
+      type: 'category',
+      title: {
+        display: true,
+        text: 'Movie Title',
+      },
+    },
+  },
+};
 
 
 export default function RuntimeStats() {
   const [url, setURL] = useState('https://stapi.co/api/v1/rest/series/search');
+  const [url1, setURL1] = useState('https://stapi.co/api/v1/rest/movie/search');
   const [chartData, setChartData] = useState({
+    labels: [],
+    datasets: [
+      {
+        label: 'Run Times',
+        data: [],
+        backgroundColor:  [
+          'rgba(0, 191, 255, 0.5)',
+        ],
+      },
+    ],
+  });
+
+  const [movieData, setMovieData] = useState({
     labels: [],
     datasets: [
       {
@@ -92,13 +158,6 @@ export default function RuntimeStats() {
           return [startDate, endDate];
         });
       
-    /*    const formattedData = series.map(season => ({
-          id: season.uid,
-          name: season.title,
-          start: new Date(season.originalRunStartDate),
-          end: new Date(season.originalRunEndDate),
-        })) ;
-*/
         setChartData(
           {
           labels: names,
@@ -112,43 +171,59 @@ export default function RuntimeStats() {
             },
           ],
          }
-          
-  //        formattedData  
         );
       })
       .catch((error) => {
         console.error('Request Failed', error);
       });
   }, [url]);
-/*
+
   useEffect(() => {
-    if (chartData.length > 0) {
-      const gantt = new Gantt('#gantt', chartData, {
-        headerHeight: 50,
-        barHeight: 20,
-        padding: 40,
-        timeDomainStart: new Date(1960, 0, 1),
-        timeDomainEnd: new Date(2030, 0 ,1),
-        timeDomainMode: 'fixed',
-        taskTypes: chartData.map(d => d.name),
-        taskStatus: {
-          RUNNING: 'bar-running',
-          COMPLETED: 'bar-completed',
-          FAILED: 'bar-failed',
-        },
-        tooltip: true,
-        locale: 'en-US',
+    axios
+      .get(url1)
+      .then((response) => {
+        const movies = response.data.movies;
+        const names = movies.map(movie => movie.title);
+        const runTimes = movies.map(movie => {
+          let releaseDate = new Date(movie.usReleaseDate).getTime();
+
+          if(releaseDate == null || isNaN(releaseDate) || releaseDate == 0) {
+            releaseDate = new Date().getTime();
+          }
+
+          return {
+            x:new Date(releaseDate).getFullYear(),
+            y:movie.title
+          };
+        });
+      
+        setMovieData(
+          {
+          labels: names,
+          datasets: [
+            {
+              label: 'Release Year',
+              data: runTimes,
+              backgroundColor:  [
+                'rgba(0, 191, 255, 0.5)',
+              ],
+            },
+          ],
+         }
+        );
+      })
+      .catch((error) => {
+        console.error('Request Failed', error);
       });
-      gantt.redraw();
-    }
-   }, [chartData]);
-*/
+  }, [url1]);
+
   return (
     <>
       <Container>
         <NavBar />
         <h1>Runtime Stats</h1>
         <Bar options={options} data={chartData}/>
+        <Scatter options={options1} data={movieData}/>
       </Container>
     </>
   );
