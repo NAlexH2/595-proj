@@ -15,7 +15,7 @@ via-purple-800 from-blue-200 from-20% bg-size-200 bg-pos-0 \
 hover:bg-pos-100";
 
 function linkAppendage(){
-  for(const item; alpha){
+  for(const item in alpha){
     document.getElementById("alphaLinks").innerHTML= <Link className="linkStyle" to="/SpaceCraftBody">{item}</Link>
   }
 }
