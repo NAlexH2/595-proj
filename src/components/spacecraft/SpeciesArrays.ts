@@ -29,8 +29,8 @@ export default function getLetterList(letter: string): string[] {
   const alpha = [
     "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", 
     "N", "O", "P", "Q", "R", "S", "T", "V", "W", "X", "Y", "Z"];
-  const lettrMap: Map<string, string[]> = new Map(alpha.map((e, i) => [e, craftBuildLists[i]]));
-  const result = lettrMap.get(letter);
+  const letterMap: Map<string, string[]> = new Map(alpha.map((e, i) => [e, craftBuildLists[i]]));
+  const result = letterMap.get(letter);
   if(result!=undefined){
     return result;
   }

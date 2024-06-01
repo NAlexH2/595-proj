@@ -15,7 +15,7 @@ interface StapiResponse{
   } | null;
 }
 
-const spaceCraftArray: StapiResponse[] = [];
+export const spaceCraftArray: StapiResponse[] = [];
 
 export default async function speciesSpacecraft() {
   for (let i = 0; i < 8; i+=1) {
