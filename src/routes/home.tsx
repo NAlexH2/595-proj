@@ -4,11 +4,11 @@ export default function Home() {
   return (
     <>
       <NavBar title={window.location.href} />
-      <h1 className="text-center mt-2 -mb-3">Welcome!</h1>
+      <h1 className="text-center mt-2 -mb-2">Welcome!</h1>
       <main className="mt-5 grid grid-cols-12 grid-rows-12">
         <section className="col-start-2 col-end-12 row-start-1 row-end-12 bg-black bg-opacity-50 p-5">
           <h2 className="max-lg:text-2xl underline">About This Website:</h2>
-          <div className="max-lg:text-base text-xl ml-3 mt-2">
+          <div className="max-lg:text-base text-xl ml-3">
             <p>
               As part of a final project for a class offered at Portland State
               Universities Computer Science department - Front End Web
@@ -38,7 +38,7 @@ export default function Home() {
               ran for.
             </p>
           </div>
-          <h2 className="max-lg:text-2xl underline mt-2">
+          <h2 className="max-lg:text-2xl underline mt-4">
             Thanks and Accreditation:
           </h2>
           <div className="max-lg:text-base text-xl ml-3 mt-2">
