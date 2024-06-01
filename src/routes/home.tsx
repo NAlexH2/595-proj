@@ -53,11 +53,7 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <footer className="grid grid-cols-12">
-        <div className="col-start-2 col-end-12">
-          <GroupFooter />
-        </div>
-      </footer>
+      <GroupFooter />
     </>
   );
 }
