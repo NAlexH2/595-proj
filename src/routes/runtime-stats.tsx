@@ -222,6 +222,9 @@ export default function RuntimeStats() {
       <Container>
         <NavBar />
         <h1>Runtime Stats</h1>
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+  Button
+</button>
         <Bar options={options} data={chartData}/>
         <Scatter options={options1} data={movieData}/>
       </Container>
