@@ -27,7 +27,7 @@ export const actData = async (): Promise<{ [key: string]: string[] }> => {
         axios
           .get(url)
           .then(response => {
-            filterAct(response.data.performers);
+            mapActors(response.data.performers);
           })
           .catch(error => console.error(error.message)),
       );
@@ -38,7 +38,7 @@ export const actData = async (): Promise<{ [key: string]: string[] }> => {
   return actorsToShowsMap;
 };
 
-const filterAct = (response: ActorStapiResponse[]) => {
+const mapActors = (response: ActorStapiResponse[]) => {
   for (let i = 0; i < response.length; i += 1) {
     const data: ActorStapiResponse = response[i];
     if (data.tngPerformer === true) {
