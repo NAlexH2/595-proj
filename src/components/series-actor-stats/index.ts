@@ -1,6 +1,5 @@
-import actorsData from "./actors.ts";
-import { actorsArray } from "./actors.ts";
+import { actData } from "./actors.ts";
 import ActorStapiResponse from "./actorStapiResponse.ts";
 
-export { actorsData, actorsArray };
+export { actData };
 export type { ActorStapiResponse };
