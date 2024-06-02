@@ -30,6 +30,8 @@ export default function SpeciesSpacecraft() {
     }
   }, []);
 
+  linkAppendage();
+
   return (
     <>
       <NavBar title={window.location.href} />
