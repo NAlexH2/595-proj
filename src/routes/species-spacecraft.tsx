@@ -15,8 +15,8 @@ via-purple-800 from-blue-200 from-20% bg-size-200 bg-pos-0 \
 hover:bg-pos-100";
 
 function linkAppendage(){
-  for(const item in alpha){
-    alphalinks.push(<Link className='linkStyle' to='/SpaceCraftBody'>${item}</Link>);
+  for(let i=0; i<alpha.length; i+=1){
+    alphalinks.push(<Link className='linkStyle' to='/SpaceCraftBody'>{alpha[i]}</Link>);
   }
 }
 
