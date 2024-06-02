@@ -1,68 +1,81 @@
 import axios from "axios";
 import ActorStapiResponse from "./actorStapiResponse";
 
-export const actorsArray: ActorStapiResponse[] = [];
+const actorsToShowsMap: { [key: string]: string[] } = {
+  "The Next Generation": [],
+  Voyager: [],
+  "The Original Series": [],
+  Discovery: [],
+  Enterprise: [],
+  Picard: [],
+  "Strange New Worlds": [],
+  "Lower Decks": [],
+  "Deep Space Nine": [],
+  Prodigy: [],
+  Extra: [],
+  "The Animated Series": [],
+};
 
-export default function actorsData() {
-  for (let i = 0; i < 69; i += 1) {
-    axios
-      .get(
+export const actData = async (): Promise<{ [key: string]: string[] }> => {
+  const requests = [];
+  if (actorsToShowsMap["The Next Generation"].length === 0) {
+    for (let i = 0; i < 1; i += 1) {
+      const url =
         "http://stapi.co/api/v2/rest/performer/search?pageSize=100&pageNumber=" +
-          i,
-      )
-      .then(response => {
-        filterActors(response.data.performers);
-      })
-      .catch(error => console.error(error.message));
-    if (i % 10 === 0) {
-      console.log(i + " of 69 complete.");
-    } else if (i + 1 === 69) {
-      console.log(i + 1 + " of 69 complete.");
+        i;
+      requests.push(
+        axios
+          .get(url)
+          .then(response => {
+            filterAct(response.data.performers);
+          })
+          .catch(error => console.error(error.message)),
+      );
     }
   }
-  return actorsArray;
-}
 
-function filterActors(response: ActorStapiResponse[]) {
+  await Promise.all(requests);
+  return actorsToShowsMap;
+};
+
+const filterAct = (response: ActorStapiResponse[]) => {
   for (let i = 0; i < response.length; i += 1) {
-    if (isActorFromShow(response[i])) {
-      delete response[i].cutPerformer;
-      delete response[i].puppeteer;
-      delete response[i].audiobookPerformer;
-      delete response[i].animalPerformer;
-      delete response[i].stPerformer;
-      delete response[i].stuntPerformer;
-      delete response[i].videoGamePerformer;
-      delete response[i].voicePerformer;
-      delete response[i].dateOfBirth;
-      delete response[i].dateOfDeath;
-      delete response[i].placeOfBirth;
-      delete response[i].placeOfDeath;
-      actorsArray.push(response[i]);
+    const data: ActorStapiResponse = response[i];
+    if (data.tngPerformer === true) {
+      actorsToShowsMap["The Next Generation"].push(data.name);
+    }
+    if (data.voyPerformer === true) {
+      actorsToShowsMap["Voyager"].push(data.name);
+    }
+    if (data.tosPerformer === true) {
+      actorsToShowsMap["The Original Series"].push(data.name);
+    }
+    if (data.disPerformer === true) {
+      actorsToShowsMap["Discovery"].push(data.name);
+    }
+    if (data.entPerformer === true) {
+      actorsToShowsMap["Enterprise"].push(data.name);
+    }
+    if (data.picPerformer === true) {
+      actorsToShowsMap["Picard"].push(data.name);
+    }
+    if (data.snwPerformer === true) {
+      actorsToShowsMap["Strange New Worlds"].push(data.name);
+    }
+    if (data.ldPerformer === true) {
+      actorsToShowsMap["Lower Decks"].push(data.name);
+    }
+    if (data.ds9Performer === true) {
+      actorsToShowsMap["Deep Space Nine"].push(data.name);
+    }
+    if (data.proPerformer === true) {
+      actorsToShowsMap["Prodigy"].push(data.name);
+    }
+    if (data.standInPerformer === true) {
+      actorsToShowsMap["Extra"].push(data.name);
+    }
+    if (data.tasPerformer === true) {
+      actorsToShowsMap["The Animated Series"].push(data.name);
     }
   }
-}
-
-function isActorFromShow(data: ActorStapiResponse): boolean {
-  const showData = [
-    data.tngPerformer,
-    data.voyPerformer,
-    data.tosPerformer,
-    data.disPerformer,
-    data.entPerformer,
-    data.picPerformer,
-    data.snwPerformer,
-    data.ldPerformer,
-    data.ds9Performer,
-    data.proPerformer,
-    data.standInPerformer,
-    data.tasPerformer,
-  ];
-  if (
-    showData.some(item => {
-      return item === true;
-    })
-  )
-    return true;
-  return false;
-}
+};
