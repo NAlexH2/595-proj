@@ -1,12 +1,11 @@
-import { Container, NavBar } from "../components/general";
+import { GroupFooter, NavBar } from "../components/general";
 
 export default function SpeciesSpacecraft() {
   return (
     <>
-      <Container>
-        <NavBar />
-        <h1>Species Spacecraft</h1>
-      </Container>
+      <NavBar title={window.location.href} />
+      <h1>Species Spacecraft</h1>
+      <GroupFooter />
     </>
   );
 }

@@ -1,5 +1,6 @@
 //Sources: https://www.youtube.com/watch?v=InMnGwP7iX4
-import { Container, NavBar } from "../components/general";
+//         https://stackoverflow.com/questions/24502898/show-or-hide-element-in-react?rq=3
+import { GroupFooter, NavBar } from "../components/general";
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import {
@@ -12,9 +13,8 @@ import {
   Tooltip,
   Legend,
   TimeScale,
-} from 'chart.js';
-import { Scatter } from 'react-chartjs-2';
-import { Bar } from 'react-chartjs-2';
+} from 'chart.js/auto';
+import { Scatter, Bar } from 'react-chartjs-2';
 import 'chartjs-adapter-date-fns';
 
 
@@ -22,23 +22,16 @@ ChartJS.register(
   CategoryScale,
   LinearScale,
   BarElement,
+  PointElement,
   Title,
   Tooltip,
   Legend,
   TimeScale
 );
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  Title,
-  Tooltip,
-  Legend
-);
-
 export const options = {
   responsive: true,
+  color:'rgba(204,204,204,1)',
   plugins: {
     legend: {
       position: 'top' as const,
@@ -46,6 +39,7 @@ export const options = {
     title: {
       display: true,
       text: 'Run Times',
+      color:'rgba(204,204,204,1)',
     },
   },
   indexAxis: 'y',
@@ -61,6 +55,7 @@ export const options = {
       title: {
         display: true,
         text: 'Release Year',
+        color:'rgba(204,204,204,1)',
       },
     },
   y: {
@@ -68,6 +63,7 @@ export const options = {
       title: {
         display: true,
         text: 'Series Title',
+        color:'rgba(204,204,204,1)',
       },
     },
   },
@@ -75,6 +71,7 @@ export const options = {
 
 export const options1 =  {
   responsive: true,
+  color:'rgba(204,204,204,1)',
   plugins: {
     legend: {
       position: 'top',
@@ -82,6 +79,7 @@ export const options1 =  {
     title: {
       display: true,
       text: 'Movie Release Years',
+      color:'rgba(204,204,204,1)',
     },
   },
   scales: {
@@ -91,10 +89,11 @@ export const options1 =  {
       title: {
         display: true,
         text: 'Release Year',
+        color:'rgba(204,204,204,1)',
       },
       ticks: {
         callback: function(value) {
-          return Number(value).toFixed(0); // Show only integers
+          return Number(value).toFixed(0);
         },
       },
     },
@@ -103,6 +102,7 @@ export const options1 =  {
       title: {
         display: true,
         text: 'Movie Title',
+        color:'rgba(204,204,204,1)',
       },
     },
   },
@@ -114,6 +114,7 @@ export default function RuntimeStats() {
   const [url1, setURL1] = useState('https://stapi.co/api/v1/rest/movie/search');
   const [chartData, setChartData] = useState({
     labels: [],
+    color:'rgba(204,204,204,1)',
     datasets: [
       {
         label: 'Run Times',
@@ -121,22 +122,29 @@ export default function RuntimeStats() {
         backgroundColor:  [
           'rgba(0, 191, 255, 0.5)',
         ],
+        borderColor: 'rgba(204,204,204,0.5)',
+        color:'rgba(204,204,204,0.5)',
       },
     ],
   });
 
   const [movieData, setMovieData] = useState({
     labels: [],
+    color:'rgba(204,204,204,1)',
     datasets: [
       {
-        label: 'Run Times',
+        label: 'Release Year',
         data: [],
         backgroundColor:  [
           'rgba(0, 191, 255, 0.5)',
         ],
+        borderColor: 'rgba(204,204,204,0.5)',
+        color:'rgba(204,204,204,0.5)',
       },
     ],
   });
+
+  const [showChart, setShowChart] = useState('bar'); 
 
   useEffect(() => {
     axios
@@ -161,6 +169,7 @@ export default function RuntimeStats() {
         setChartData(
           {
           labels: names,
+          color:'rgba(204,204,204,1)',
           datasets: [
             {
               label: 'Run Times',
@@ -168,6 +177,8 @@ export default function RuntimeStats() {
               backgroundColor:  [
                 'rgba(0, 191, 255, 0.5)',
               ],
+              borderColor: 'rgba(204,204,204,0.5)',
+              color:'rgba(204,204,204,0.5)',
             },
           ],
          }
@@ -200,6 +211,7 @@ export default function RuntimeStats() {
         setMovieData(
           {
           labels: names,
+          color:'rgba(204,204,204,1)',
           datasets: [
             {
               label: 'Release Year',
@@ -207,6 +219,8 @@ export default function RuntimeStats() {
               backgroundColor:  [
                 'rgba(0, 191, 255, 0.5)',
               ],
+              borderColor: 'rgba(204,204,204,0.5)',
+              color:'rgba(204,204,204,0.5)',
             },
           ],
          }
@@ -217,17 +231,37 @@ export default function RuntimeStats() {
       });
   }, [url1]);
 
+  const handleClick1 = () => {
+    setShowChart('bar');
+  };
+
+  const handleClick2 = () => {
+    setShowChart('scatter');
+  };
+
   return (
     <>
-      <Container>
-        <NavBar />
-        <h1>Runtime Stats</h1>
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-  Button
-</button>
-        <Bar options={options} data={chartData}/>
-        <Scatter options={options1} data={movieData}/>
-      </Container>
+        <NavBar title={window.location.href} />
+        
+        <h1 className="flex justify-center">Runtime Stats</h1>
+        <div className="flex justify-center">
+          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 m-3 rounded" onClick={handleClick1}>
+            Series
+          </button>
+          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 m-3 rounded" onClick={handleClick2}>
+            Movies
+          </button>
+        </div>
+          <div className="flex-column mb-6">
+            <div id="bar" className={showChart === 'bar' ? 'visible' : 'hidden'}>
+              <Bar options={options} data={chartData}/>
+            </div>
+            <div id="scatter" className={showChart === 'scatter' ? 'visible' : 'hidden'}>
+              <Scatter options={options1} data={movieData}/>
+            </div>
+          </div>
+        
+      <GroupFooter />
     </>
   );
 }
