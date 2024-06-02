@@ -1,4 +1,4 @@
-import { actData } from "./actors.ts";
+import { actData } from "./actorCollect.ts";
 import ActorStapiResponse from "./actorStapiResponse.ts";
 
 export { actData };
