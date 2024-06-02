@@ -1,6 +1,6 @@
 export default interface ActorStapiResponse {
-  uid?: string;
-  name?: string;
+  uid: string;
+  name: string;
   birthName?: string | null;
   gender?: string | null;
   dateOfBirth?: string | null;
