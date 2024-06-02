@@ -28,10 +28,10 @@ export default function SeriesActorStats() {
           data to collect, please wait...
         </section>
       ) : (
-        Object.entries(actorData).map(([show]) => (
+        Object.entries(actorData).map(([show, actors]) => (
           <div key={show}>
             <h2>{show}</h2>
-            {show.length}
+            {actors.length}
           </div>
         ))
       )}
