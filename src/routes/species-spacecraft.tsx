@@ -7,7 +7,7 @@ import speciesSpacecraft, {
 import { craftBuildLists, alpha } from "../components/spacecraft/SpeciesArrays";
 import { Link } from "react-router-dom";
 
-const alphalinks:string[]=[];
+const alphalinks: JSX.Element[]=[];
 const linkStyle =
 "bg-clip-text text-transparent \
 transition-all duration-500 bg-gradient-to-tl to-orange-300 to-[75%] \
@@ -16,7 +16,7 @@ hover:bg-pos-100";
 
 function linkAppendage(){
   for(const item in alpha){
-    alphalinks.push(`<Link className='linkStyle' to='/SpaceCraftBody'>${item}</Link>`);
+    alphalinks.push(<Link className='linkStyle' to='/SpaceCraftBody'>${item}</Link>);
   }
 }
 
