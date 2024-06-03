@@ -16,7 +16,7 @@ hover:bg-pos-100";
 
 function linkAppendage(){
   for(let i=0; i<alpha.length; i+=1){
-    alphalinks.push(<Link className='linkStyle' to='/SpaceCraftBody'>{alpha[i]}</Link>);
+    alphalinks.push(<Link className={linkStyle} to='/SpaceCraftBody'>{alpha[i]}</Link>);
   }
 }
 
@@ -30,6 +30,7 @@ export default function SpeciesSpacecraft() {
     }
   }, []);
 
+  alphalinks.length=0;
   linkAppendage();
 
   return (
