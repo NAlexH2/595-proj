@@ -41,6 +41,13 @@ export const options = {
       text: 'Run Times',
       color:'rgba(204,204,204,1)',
     },
+    tooltip: {
+      callbacks: {
+        label: (context) => {
+          console.log(context);
+        },
+      },
+    },
   },
   indexAxis: 'y',
   scales: {
@@ -50,12 +57,17 @@ export const options = {
       tooltipFormat: 'YYYY-MM-DD',
       displayFormats: {
         year: 'YYYY',
-        month: 'MM YYYY',
       },
       title: {
         display: true,
         text: 'Release Year',
         color:'rgba(204,204,204,1)',
+      },
+      grid: {
+        color:'rgba(204,204,204,1)',
+      },
+      ticks: {
+        color: 'rgba(204,204,204,1)',
       },
     },
   y: {
@@ -65,6 +77,12 @@ export const options = {
         text: 'Series Title',
         color:'rgba(204,204,204,1)',
       },
+      grid: {
+        color:'rgba(204,204,204,1)',
+      },
+      ticks: {
+        color: 'rgba(204,204,204,1)',
+      },
     },
   },
 };
@@ -72,6 +90,7 @@ export const options = {
 export const options1 =  {
   responsive: true,
   color:'rgba(204,204,204,1)',
+  radius: 5,
   plugins: {
     legend: {
       position: 'top',
@@ -92,9 +111,13 @@ export const options1 =  {
         color:'rgba(204,204,204,1)',
       },
       ticks: {
+        color: 'rgba(204,204,204,1)',
         callback: function(value) {
           return Number(value).toFixed(0);
         },
+      },
+      grid: {
+        color:'rgba(204,204,204,1)',
       },
     },
     y: {
@@ -104,17 +127,22 @@ export const options1 =  {
         text: 'Movie Title',
         color:'rgba(204,204,204,1)',
       },
+      grid: {
+        color:'rgba(204,204,204,1)',
+      },
+      ticks: {
+        color: 'rgba(204,204,204,1)',
+      },
     },
   },
 };
 
 
 export default function RuntimeStats() {
-  const [url, setURL] = useState('https://stapi.co/api/v1/rest/series/search');
-  const [url1, setURL1] = useState('https://stapi.co/api/v1/rest/movie/search');
+  const [url] = useState('https://stapi.co/api/v1/rest/series/search');
+  const [url1] = useState('https://stapi.co/api/v1/rest/movie/search');
   const [chartData, setChartData] = useState({
     labels: [],
-    color:'rgba(204,204,204,1)',
     datasets: [
       {
         label: 'Run Times',
@@ -163,13 +191,14 @@ export default function RuntimeStats() {
           if(isNaN(endDate) || endDate == null || endDate == 0) {
             endDate = new Date().getTime();
           }
-          return [startDate, endDate];
+          const test = new Date(startDate);
+          console.log(test.toLocaleDateString());
+         return [startDate, endDate];
         });
-      
+    
         setChartData(
           {
           labels: names,
-          color:'rgba(204,204,204,1)',
           datasets: [
             {
               label: 'Run Times',
@@ -252,7 +281,7 @@ export default function RuntimeStats() {
             Movies
           </button>
         </div>
-          <div className="flex-column mb-6">
+          <div className="flex-column mb-20 mx-10">
             <div id="bar" className={showChart === 'bar' ? 'visible' : 'hidden'}>
               <Bar options={options} data={chartData}/>
             </div>
