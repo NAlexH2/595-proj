@@ -18,7 +18,7 @@ const actorsToShowsMap: { [key: string]: string[] } = {
 
 const pageSize = 69;
 
-export const ActData = async (): Promise<{ [key: string]: string[] }> => {
+export const ActorCollect = async (): Promise<{ [key: string]: string[] }> => {
   const requests = [];
   if (actorsToShowsMap["The Next Generation"].length === 0) {
     for (let i = 0; i < pageSize; i += 1) {

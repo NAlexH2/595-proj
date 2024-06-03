@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { GroupFooter, NavBar } from "../components/general";
-import { ActData, ActorStatsGraph } from "../components/series-actor-stats";
+import {
+  ActorCollect,
+  ActorStatsGraph,
+} from "../components/series-actor-stats";
 
 const activeButtonStyle =
   "border-3 text-black rounded-2xl p-2 text-sm font-semibold lg:font-bold \
@@ -34,7 +37,7 @@ export const SeriesActorStats = () => {
     if (!hasFetched.current) {
       hasFetched.current = true;
       (async () => {
-        const data = await ActData();
+        const data = await ActorCollect();
         setActorData(data);
         setLoading(false);
       })();
