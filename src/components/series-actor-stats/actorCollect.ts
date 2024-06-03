@@ -12,14 +12,16 @@ const actorsToShowsMap: { [key: string]: string[] } = {
   "Lower Decks": [],
   "Deep Space Nine": [],
   Prodigy: [],
-  Extra: [],
   "The Animated Series": [],
+  Extras: [],
 };
 
-export const actData = async (): Promise<{ [key: string]: string[] }> => {
+const pageSize = 69;
+
+export const ActData = async (): Promise<{ [key: string]: string[] }> => {
   const requests = [];
   if (actorsToShowsMap["The Next Generation"].length === 0) {
-    for (let i = 0; i < 1; i += 1) {
+    for (let i = 0; i < pageSize; i += 1) {
       const url =
         "http://stapi.co/api/v2/rest/performer/search?pageSize=100&pageNumber=" +
         i;
@@ -72,7 +74,7 @@ const mapActors = (response: ActorStapiResponse[]) => {
       actorsToShowsMap["Prodigy"].push(data.name);
     }
     if (data.standInPerformer === true) {
-      actorsToShowsMap["Extra"].push(data.name);
+      actorsToShowsMap["Extras"].push(data.name);
     }
     if (data.tasPerformer === true) {
       actorsToShowsMap["The Animated Series"].push(data.name);
