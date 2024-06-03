@@ -1,6 +1,6 @@
 import { NavBar, GroupFooter, StyledLink } from "../components/general";
 
-export default function Home() {
+export const Home = () => {
   return (
     <>
       <NavBar title={window.location.href} />
@@ -66,4 +66,4 @@ export default function Home() {
       <GroupFooter />
     </>
   );
-}
+};

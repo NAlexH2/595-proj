@@ -1,6 +1,6 @@
 import { GroupFooter, NavBar } from "../components/general";
 
-export default function SpeciesSpacecraft() {
+export const SpeciesSpacecraft = () => {
   return (
     <>
       <NavBar title={window.location.href} />
@@ -8,4 +8,4 @@ export default function SpeciesSpacecraft() {
       <GroupFooter />
     </>
   );
-}
+};
