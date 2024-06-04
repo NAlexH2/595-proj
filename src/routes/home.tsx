@@ -2,7 +2,7 @@ import { NavBar, GroupFooter, StyledLink } from "../components/general";
 
 export const Home = () => {
   return (
-    <>
+    <div data-testid="home-test">
       <NavBar title={window.location.href} />
       <h1 className="text-center mt-2 -mb-2">Welcome!</h1>
       <main className="mt-5 grid grid-cols-12 grid-rows-12">
@@ -64,6 +64,6 @@ export const Home = () => {
         </section>
       </main>
       <GroupFooter />
-    </>
+    </div>
   );
 };
