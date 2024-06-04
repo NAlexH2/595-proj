@@ -51,11 +51,11 @@ export const SpeciesSpacecraft = () => {
       alien = getLetterList(letter);
       spaceShip = speciesToShipMap[letter];
       for (const craft of spaceShip) {
-        if(craft!== null && craft.species!==null){
+        if (craft !== null && craft.species !== null) {
           shipStats.push(
             <p>
-              Name: {craft.name} Warp Capability:{" "}
-              {craft.warpCapable} Species: {craft.species.name}
+              Name: {craft.name} Warp Capability: {craft.warpCapable} Species:{" "}
+              {craft.species.name}
             </p>,
           );
         }
@@ -70,7 +70,9 @@ export const SpeciesSpacecraft = () => {
     <div data-testid="spacecraft-test">
       <NavBar title={window.location.href} />
       <h1 className="text-center mt-2 -mb-2">Species Spacecraft</h1>
-      <div id="alphaLinks" className="justify-around mx-auto">{alphalinks}</div>
+      <div id="alphaLinks" className="justify-around mx-auto mt-3">
+        {alphalinks}
+      </div>
       <section className="grid grid-cols-12 grid-rows-5 mt-5">
         <div id="letterSpecs">Displaying ships for these species: {alien}</div>
         <div
