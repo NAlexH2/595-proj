@@ -16,9 +16,10 @@ const actorsToShowsMap: { [key: string]: string[] } = {
   Extras: [],
 };
 
-const pageSize = 69;
-
-export const ActorCollect = async (): Promise<{ [key: string]: string[] }> => {
+export const ActorCollect = async (
+  pageSize?: number,
+): Promise<{ [key: string]: string[] }> => {
+  if (pageSize === undefined) pageSize = 69;
   const requests = [];
   if (actorsToShowsMap["The Next Generation"].length === 0) {
     for (let i = 0; i < pageSize; i += 1) {

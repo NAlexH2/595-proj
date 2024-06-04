@@ -17,7 +17,7 @@ const buttonStyle =
   from-purple-800 from-20% to-blue-200 to-[90%] bg-size-200 bg-pos-0 \
   hover:bg-pos-100";
 
-export const SeriesActorStats = () => {
+export const SeriesActorStats = ({ pages = 69 }: { pages?: number }) => {
   const hasFetched = useRef(false);
   const [loading, setLoading] = useState(true);
   const [actorData, setActorData] = useState<{ [key: string]: string[] }>({});
@@ -37,7 +37,7 @@ export const SeriesActorStats = () => {
     if (!hasFetched.current) {
       hasFetched.current = true;
       (async () => {
-        const data = await ActorCollect();
+        const data = await ActorCollect(pages);
         setActorData(data);
         setLoading(false);
       })();
@@ -45,16 +45,19 @@ export const SeriesActorStats = () => {
   }, []);
 
   return (
-    <>
+    <div data-testid="sas-test">
       <NavBar title={window.location.href} />
 
       {loading ? (
-        <section className="text-center mt-10 mb-20 text-2xl animate-pulse ">
+        <section
+          className="text-center mt-10 mb-20 text-2xl animate-pulse "
+          data-testid="sas-loading"
+        >
           There is <div className="font-extrabold inline-block">a lot</div> of
           data to collect, please wait...
         </section>
       ) : (
-        <main className="mt-4 mb-16">
+        <main className="mt-4 mb-16" data-testid="sas-test">
           <section className="grid grid-cols-12">
             <section className="col-start-2 col-end-12 bg-black bg-opacity-25 my-2 pl-5 pb-5 pr-5">
               <ActorStatsGraph actorData={actorData} />
@@ -93,6 +96,6 @@ export const SeriesActorStats = () => {
         </main>
       )}
       <GroupFooter />
-    </>
+    </div>
   );
 };
