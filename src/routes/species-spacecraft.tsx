@@ -50,13 +50,15 @@ export const SpeciesSpacecraft = () => {
       shipStats.length = 0;
       alien = getLetterList(letter);
       spaceShip = speciesToShipMap[letter];
-      for (let i = 0; i < spaceShip.length; i += 1) {
-        shipStats.push(
-          <p>
-            Name: {spaceShip[i].name} Warp Capability:{" "}
-            {spaceShip[i].warpCapable} Species: {spaceShip[i].species.name}
-          </p>,
-        );
+      for (const craft of spaceShip) {
+        if(craft!== null && craft.species!==null){
+          shipStats.push(
+            <p>
+              Name: {craft.name} Warp Capability:{" "}
+              {craft.warpCapable} Species: {craft.species.name}
+            </p>,
+          );
+        }
       }
     };
   }
