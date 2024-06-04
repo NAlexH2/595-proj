@@ -77,7 +77,7 @@ export const options = {
           callback: function(value) {
             return Number(value).toFixed(0);
           },
-        },
+           },
         grid: {
           color:'rgba(204,204,204,1)',
         },

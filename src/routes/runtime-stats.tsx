@@ -288,15 +288,17 @@ export default function RuntimeStats() {
   );
 }
 */
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { GroupFooter, NavBar } from "../components/general";
 import ChartComponent from '../components/runtime-stats/chartComponent';
 import ButtonToggle from '../components/runtime-stats/buttonToggle';
 import { FetchData } from '../components/runtime-stats/fetchData';
 
 const RuntimeStats = () => {
-  const [url] = useState('https://stapi.co/api/v1/rest/series/search');
-  const [url1] = useState('https://stapi.co/api/v1/rest/movie/search');
+  //const [url] = useState('https://stapi.co/api/v1/rest/series/search');
+  //const [url1] = useState('https://stapi.co/api/v1/rest/movie/search');
+  const url = "https://stapi.co/api/v1/rest/series/search";
+  const url1 = "https://stapi.co/api/v1/rest/movie/search";
   const [showChart, setShowChart] = useState('bar'); 
   const { chartData, movieData } = FetchData(url, url1);
 

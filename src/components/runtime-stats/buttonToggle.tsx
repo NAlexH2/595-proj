@@ -1,5 +1,3 @@
-import React from 'react';
-
 const ButtonToggle = ({ handleClick1, handleClick2 }) => {
   return (
     <div className="flex justify-center">

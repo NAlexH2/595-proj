@@ -1,4 +1,3 @@
-import React from 'react';
 import { Bar, Scatter } from 'react-chartjs-2';
 import { options, options1 } from './chartOptions';
 import 'chartjs-adapter-date-fns';
@@ -13,6 +12,7 @@ import {
   Legend,
   TimeScale,
 } from 'chart.js/auto';
+import { ShowChartData, MovieChartData } from './fetchData';
 
 ChartJS.register(
   CategoryScale,
@@ -25,7 +25,7 @@ ChartJS.register(
   TimeScale
 );
 
-const ChartComponent = ({ showChart, chartData, movieData}) => {
+const ChartComponent = ({ showChart, chartData, movieData}:{chartData: ShowChartData, movieData: MovieChartData}) => {
     return (
         <div className="flex-column mb-20 mx-10">
             <div id="bar" className={showChart === 'bar' ? 'visible' : 'hidden'}>

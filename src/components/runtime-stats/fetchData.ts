@@ -1,8 +1,81 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
+interface MovieStapiResponse {
+  uid: string;
+  title: string;
+  mainDirector: {
+    uid: string;
+    name: string;
+  };
+  titleBulgarian: string;
+  titleCatalan: string;
+  titleChineseTraditional: string | null;
+  titleGerman: string | null;
+  titleItalian: string | null;
+  titleJapanese: string | null;
+  titlePolish: string | null;
+  titleRussian: string | null;
+  titleSerbian: string | null;
+  titleSpanish: string | null;
+  stardateFrom: number;
+  stardateTo: number;
+  yearFrom: number;
+  yearTo: number;
+  usReleaseDate: string;
+}
+
+interface ShowStapiResponse {
+  uid: string;
+  title: string;
+  abbreviation: string;
+  productionStartYear: number;
+  productionEndYear: number | null;
+  originalRunStartDate: number | null;
+  originalRunEndDate: number | null;
+  seasonsCount: number | null;
+  episodesCount: number | null;
+  featureLengthEpisodesCount: number | null;
+  productionCompany: {
+    uid: string;
+    name: string;
+  };
+  originalBroadcaster: {
+    uid: string;
+    name: string;
+  };
+}
+
+export interface ShowChartData {
+  labels: string[];
+  color: string;
+  datasets: [
+    {
+      label: string;
+      data: number[][];
+      backgroundColor: string[];
+      borderColor: string;
+      color: string;
+    },
+  ];
+}
+
+export interface MovieChartData {
+  labels: string[];
+  color: string;
+  datasets: [
+    {
+      label: string;
+      data: { x: number; y: string }[];
+      backgroundColor: string[];
+      borderColor: string;
+      color: string;
+    },
+  ];
+}
+
 export const FetchData = (url, url1) => {
-  const [chartData, setChartData] = useState({
+ /* const [chartData, setChartData] = useState({
     labels: [],
     datasets: [
       {
@@ -14,7 +87,21 @@ export const FetchData = (url, url1) => {
       },
     ],
   });
-
+*/
+const [chartData, setChartData] = useState<ShowChartData>({
+  labels: [],
+  color: "rgba(204,204,204,1)",
+  datasets: [
+    {
+      label: "Run Times",
+      data: [],
+      backgroundColor: ["rgba(0, 191, 255, 0.5)"],
+      borderColor: "rgba(204,204,204,0.5)",
+      color: "rgba(204,204,204,0.5)",
+    },
+  ],
+});
+/*
   const [movieData, setMovieData] = useState({
     labels: [],
     datasets: [
@@ -27,11 +114,25 @@ export const FetchData = (url, url1) => {
       },
     ],
   });
+*/
+  const [movieData, setMovieData] = useState<MovieChartData>({
+    labels: [],
+    color: "rgba(204,204,204,1)",
+    datasets: [
+      {
+        label: "Run Times",
+        data: [],
+        backgroundColor: ["rgba(0, 191, 255, 0.5)"],
+        borderColor: "rgba(204,204,204,0.5)",
+        color: "rgba(204,204,204,0.5)",
+      },
+    ],
+  });
 
   useEffect(() => {
     axios.get(url)
       .then((response) => {
-        const series = response.data.series;
+     /*   const series = response.data.series;
         const names = series.map(season => season.title);
         const runTimes = series.map(season => {
           let startDate = new Date(season.originalRunStartDate).getTime();
@@ -44,12 +145,27 @@ export const FetchData = (url, url1) => {
           if(isNaN(endDate) || endDate == null || endDate == 0) {
             endDate = new Date().getTime();
           }
+*/
+          const series: ShowStapiResponse[] = response.data.series;
+          const names = series.map(season => season.title);
+          const runTimes = series.map(season => {
+          let startDate = season.originalRunStartDate;
+          let endDate = season.originalRunEndDate;
+
+          if (startDate === null) {
+            startDate = new Date().getTime();
+          }
+
+          if (endDate === null) {
+            endDate = new Date().getTime();
+          }
 
           return [startDate, endDate];
         });
 
         setChartData({
           labels: names,
+          color: "rgba(204,204,204,1)",
           datasets: [
             {
               label: 'Run Times',
@@ -69,7 +185,8 @@ export const FetchData = (url, url1) => {
   useEffect(() => {
     axios.get(url1)
       .then((response) => {
-        const movies = response.data.movies;
+       // const movies = response.data.movies;
+       const movies: MovieStapiResponse[] = response.data.movies;
         const names = movies.map(movie => movie.title);
         const runTimes = movies.map(movie => {
           let releaseDate = new Date(movie.usReleaseDate).getTime();
@@ -86,6 +203,7 @@ export const FetchData = (url, url1) => {
 
         setMovieData({
           labels: names,
+          color: "rgba(204,204,204,1)",
           datasets: [
             {
               label: 'Release Year',
