@@ -77,81 +77,85 @@ export const speciesToShipMap: { [key: string]: StapiResponse[] } = {
 };
 
 const mapShips =(spacecrafts: StapiResponse[]) =>{
-  for(let i=0; i<spacecrafts.length; i+=1){
-    if(getLetterList('A').includes(spacecrafts[i].species.name)){
-      speciesToShipMap['A'].push(spacecrafts[i])
-    }
-    else if(getLetterList('B').includes(spacecrafts[i].species.name)){
-      speciesToShipMap['B'].push(spacecrafts[i])
-    }
-    else if(getLetterList('C').includes(spacecrafts[i].species.name)){
-      speciesToShipMap['C'].push(spacecrafts[i])
-    }
-    else if(getLetterList('D').includes(spacecrafts[i].species.name)){
-      speciesToShipMap['D'].push(spacecrafts[i])
-    }
-    else if(getLetterList('E').includes(spacecrafts[i].species.name)){
-      speciesToShipMap['E'].push(spacecrafts[i])
-    }
-    else if(getLetterList('F').includes(spacecrafts[i].species.name)){
-      speciesToShipMap['F'].push(spacecrafts[i])
-    }
-    else if(getLetterList('G').includes(spacecrafts[i].species.name)){
-      speciesToShipMap['G'].push(spacecrafts[i])
-    }
-    else if(getLetterList('H').includes(spacecrafts[i].species.name)){
-      speciesToShipMap['H'].push(spacecrafts[i])
-    }
-    else if(getLetterList('I').includes(spacecrafts[i].species.name)){
-      speciesToShipMap['I'].push(spacecrafts[i])
-    }
-    else if(getLetterList('J').includes(spacecrafts[i].species.name)){
-      speciesToShipMap['J'].push(spacecrafts[i])
-    }
-    else if(getLetterList('K').includes(spacecrafts[i].species.name)){
-      speciesToShipMap['K'].push(spacecrafts[i])
-    }
-    else if(getLetterList('L').includes(spacecrafts[i].species.name)){
-      speciesToShipMap['L'].push(spacecrafts[i])
-    }
-    else if(getLetterList('M').includes(spacecrafts[i].species.name)){
-      speciesToShipMap['M'].push(spacecrafts[i])
-    }
-    else if(getLetterList('N').includes(spacecrafts[i].species.name)){
-      speciesToShipMap['N'].push(spacecrafts[i])
-    }
-    else if(getLetterList('O').includes(spacecrafts[i].species.name)){
-      speciesToShipMap['O'].push(spacecrafts[i])
-    }
-    else if(getLetterList('P').includes(spacecrafts[i].species.name)){
-      speciesToShipMap['P'].push(spacecrafts[i])
-    }
-    else if(getLetterList('Q').includes(spacecrafts[i].species.name)){
-      speciesToShipMap['Q'].push(spacecrafts[i])
-    }
-    else if(getLetterList('R').includes(spacecrafts[i].species.name)){
-      speciesToShipMap['R'].push(spacecrafts[i])
-    }
-    else if(getLetterList('S').includes(spacecrafts[i].species.name)){
-      speciesToShipMap['S'].push(spacecrafts[i])
-    }
-    else if(getLetterList('T').includes(spacecrafts[i].species.name)){
-      speciesToShipMap['T'].push(spacecrafts[i])
-    }
-    else if(getLetterList('V').includes(spacecrafts[i].species.name)){
-      speciesToShipMap['V'].push(spacecrafts[i])
-    }
-    else if(getLetterList('W').includes(spacecrafts[i].species.name)){
-      speciesToShipMap['W'].push(spacecrafts[i])
-    }
-    else if(getLetterList('X').includes(spacecrafts[i].species.name)){
-      speciesToShipMap['X'].push(spacecrafts[i])
-    }
-    else if(getLetterList('Y').includes(spacecrafts[i].species.name)){
-      speciesToShipMap['Y'].push(spacecrafts[i])
-    }
-    else if(getLetterList('Z').includes(spacecrafts[i].species.name)){
-      speciesToShipMap['Z'].push(spacecrafts[i])
+  if(spacecrafts!== null){
+    for(const craft of spacecrafts){
+      if(craft!== null && craft.species!==null){
+        if(getLetterList('A').includes(craft.species.name)){
+          speciesToShipMap['A'].push(craft)
+        }
+        else if(getLetterList('B').includes(craft.species.name)){
+          speciesToShipMap['B'].push(craft)
+        }
+        else if(getLetterList('C').includes(craft.species.name)){
+          speciesToShipMap['C'].push(craft)
+        }
+        else if(getLetterList('D').includes(craft.species.name)){
+          speciesToShipMap['D'].push(craft)
+        }
+        else if(getLetterList('E').includes(craft.species.name)){
+          speciesToShipMap['E'].push(craft)
+        }
+        else if(getLetterList('F').includes(craft.species.name)){
+          speciesToShipMap['F'].push(craft)
+        }
+        else if(getLetterList('G').includes(craft.species.name)){
+          speciesToShipMap['G'].push(craft)
+        }
+        else if(getLetterList('H').includes(craft.species.name)){
+          speciesToShipMap['H'].push(craft)
+        }
+        else if(getLetterList('I').includes(craft.species.name)){
+          speciesToShipMap['I'].push(craft)
+        }
+        else if(getLetterList('J').includes(craft.species.name)){
+          speciesToShipMap['J'].push(craft)
+        }
+        else if(getLetterList('K').includes(craft.species.name)){
+          speciesToShipMap['K'].push(craft)
+        }
+        else if(getLetterList('L').includes(craft.species.name)){
+          speciesToShipMap['L'].push(craft)
+        }
+        else if(getLetterList('M').includes(craft.species.name)){
+          speciesToShipMap['M'].push(craft)
+        }
+        else if(getLetterList('N').includes(craft.species.name)){
+          speciesToShipMap['N'].push(craft)
+        }
+        else if(getLetterList('O').includes(craft.species.name)){
+          speciesToShipMap['O'].push(craft)
+        }
+        else if(getLetterList('P').includes(craft.species.name)){
+          speciesToShipMap['P'].push(craft)
+        }
+        else if(getLetterList('Q').includes(craft.species.name)){
+          speciesToShipMap['Q'].push(craft)
+        }
+        else if(getLetterList('R').includes(craft.species.name)){
+          speciesToShipMap['R'].push(craft)
+        }
+        else if(getLetterList('S').includes(craft.species.name)){
+          speciesToShipMap['S'].push(craft)
+        }
+        else if(getLetterList('T').includes(craft.species.name)){
+          speciesToShipMap['T'].push(craft)
+        }
+        else if(getLetterList('V').includes(craft.species.name)){
+          speciesToShipMap['V'].push(craft)
+        }
+        else if(getLetterList('W').includes(craft.species.name)){
+          speciesToShipMap['W'].push(craft)
+        }
+        else if(getLetterList('X').includes(craft.species.name)){
+          speciesToShipMap['X'].push(craft)
+        }
+        else if(getLetterList('Y').includes(craft.species.name)){
+          speciesToShipMap['Y'].push(craft)
+        }
+        else if(getLetterList('Z').includes(craft.species.name)){
+          speciesToShipMap['Z'].push(craft)
+        }
+      }
     }
   }
 }
