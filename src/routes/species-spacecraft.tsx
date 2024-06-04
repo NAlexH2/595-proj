@@ -34,11 +34,11 @@ export default function SpeciesSpacecraft() {
   linkAppendage();
 
   return (
-    <>
+    <div data-testid="spacecraft-test">
       <NavBar title={window.location.href} />
       <h1 className="text-center mt-2 -mb-2">Species Spacecraft</h1>
       <div id="alphaLinks">{alphalinks}</div>
       <GroupFooter />
-    </>
+    </div>
   );
-}
+};
