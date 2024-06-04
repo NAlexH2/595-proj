@@ -1,7 +1,7 @@
 import { GroupFooter, NavBar } from "../components/general";
-import { useRef, useEffect, useState} from "react";
+import { useRef, useEffect, useState } from "react";
 import speciesSpacecraft, {
-  StapiResponse
+  StapiResponse,
 } from "../components/spacecraft/ShipInfo";
 import getLetterList, { alpha } from "../components/spacecraft/SpeciesArrays";
 import { speciesToShipMap } from "../components/spacecraft/ShipInfo";
@@ -18,35 +18,40 @@ const buttonStyle =
   from-purple-800 from-20% to-blue-200 to-[90%] bg-size-200 bg-pos-0 \
   hover:bg-pos-100";
 
-export const SpeciesSpacecraft=()=> {
+export const SpeciesSpacecraft = () => {
   const hasFetched = useRef(false);
-  const alphalinks: JSX.Element[]=[];
-  const shipStats: JSX.Element[]=[];
+  const alphalinks: JSX.Element[] = [];
+  const shipStats: JSX.Element[] = [];
   const [buttonState, setButtonState] = useState<string>("");
-  let alien: string[]=[];
-  let spaceShip: StapiResponse[]=[];
+  let alien: string[] = [];
+  let spaceShip: StapiResponse[] = [];
 
-  function linkAppendage(){
-    for(let i=0; i<alpha.length; i+=1){
-      alphalinks.push(<button
-        className={
-          alpha[i] === buttonState ? activeButtonStyle : buttonStyle
-        }
-        key={alpha[i]}
-        onClick={() => handleAlphaButtonClick(alpha[i])}
-      >
-        {alpha[i]}
-      </button>);
+  function linkAppendage() {
+    for (let i = 0; i < alpha.length; i += 1) {
+      alphalinks.push(
+        <button
+          className={alpha[i] === buttonState ? activeButtonStyle : buttonStyle}
+          key={alpha[i]}
+          onClick={() => handleAlphaButtonClick(alpha[i])}
+        >
+          {alpha[i]}
+        </button>,
+      );
     }
-    const handleAlphaButtonClick=(letter: string)=>{
-      letter!== buttonState ? setButtonState(letter): letter;
-      shipStats.length=0;
-      alien= getLetterList(letter);
-      spaceShip= speciesToShipMap[letter];
-      for(let i=0; i<spaceShip.length; i+=1){
-        shipStats.push(<p>Name: {spaceShip[i].name} Warp Capability: {spaceShip[i].warpCapable} Species: {spaceShip[i].species.name}</p>)
+    const handleAlphaButtonClick = (letter: string) => {
+      letter !== buttonState ? setButtonState(letter) : letter;
+      shipStats.length = 0;
+      alien = getLetterList(letter);
+      spaceShip = speciesToShipMap[letter];
+      for (let i = 0; i < spaceShip.length; i += 1) {
+        shipStats.push(
+          <p>
+            Name: {spaceShip[i].name} Warp Capability:{" "}
+            {spaceShip[i].warpCapable} Species: {spaceShip[i].species.name}
+          </p>,
+        );
       }
-    }
+    };
   }
 
   useEffect(() => {
@@ -56,7 +61,7 @@ export const SpeciesSpacecraft=()=> {
     }
   }, []);
 
-  alphalinks.length=0;
+  alphalinks.length = 0;
   linkAppendage();
 
   return (
@@ -65,7 +70,13 @@ export const SpeciesSpacecraft=()=> {
       <h1 className="text-center mt-2 -mb-2">Species Spacecraft</h1>
       <div id="alphaLinks">{alphalinks}</div>
       <div id="letterSpecs">Displaying ships for these species: {alien}</div>
-      <div id="letterShips">{shipStats}</div>
+      <div
+        id="letterShips"
+        className="row-start-2 row-span-5 col-start-2 col-span-10 border-4 overflow-y-scroll
+          rounded-lg max-h-40"
+      >
+        {shipStats}
+      </div>
       <GroupFooter />
     </div>
   );
