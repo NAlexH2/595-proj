@@ -26,6 +26,13 @@ export const SpeciesSpacecraft = () => {
   let alien: string[] = [];
   let spaceShip: StapiResponse[] = [];
 
+  useEffect(() => {
+    if (!hasFetched.current) {
+      hasFetched.current = true;
+      speciesSpacecraft();
+    }
+  }, []);
+
   function linkAppendage() {
     for (let i = 0; i < alpha.length; i += 1) {
       alphalinks.push(
@@ -54,13 +61,6 @@ export const SpeciesSpacecraft = () => {
     };
   }
 
-  useEffect(() => {
-    if (!hasFetched.current) {
-      hasFetched.current = true;
-      speciesSpacecraft();
-    }
-  }, []);
-
   alphalinks.length = 0;
   linkAppendage();
 
@@ -68,7 +68,7 @@ export const SpeciesSpacecraft = () => {
     <div data-testid="spacecraft-test">
       <NavBar title={window.location.href} />
       <h1 className="text-center mt-2 -mb-2">Species Spacecraft</h1>
-      <div id="alphaLinks" className="justify-around">{alphalinks}</div>
+      <div id="alphaLinks" className="justify-around mx-auto">{alphalinks}</div>
       <section className="grid grid-cols-12 grid-rows-5 mt-5">
         <div id="letterSpecs">Displaying ships for these species: {alien}</div>
         <div
