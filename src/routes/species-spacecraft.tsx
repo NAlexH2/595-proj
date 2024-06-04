@@ -80,7 +80,7 @@ export const SpeciesSpacecraft = () => {
           className="row-start-2 row-span-5 col-start-2 col-span-10 border-4 overflow-y-scroll
             rounded-lg max-h-40"
         >
-          {shipStats}
+          {shipStats.map(ship => (<p>{ship}</p>))}
         </div>
       </section>
       <GroupFooter />
