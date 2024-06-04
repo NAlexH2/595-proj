@@ -1,6 +1,7 @@
 //Sources: https://www.youtube.com/watch?v=InMnGwP7iX4
 //         https://stackoverflow.com/questions/24502898/show-or-hide-element-in-react?rq=3
-import { GroupFooter, NavBar } from "../components/general";
+/*import { GroupFooter, NavBar } from "../components/general";
+import {chartComponent} from "../components/runtime-stats";
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import {
@@ -40,13 +41,6 @@ export const options = {
       display: true,
       text: 'Run Times',
       color:'rgba(204,204,204,1)',
-    },
-    tooltip: {
-      callbacks: {
-        label: (context) => {
-          console.log(context);
-        },
-      },
     },
   },
   indexAxis: 'y',
@@ -191,8 +185,7 @@ export default function RuntimeStats() {
           if(isNaN(endDate) || endDate == null || endDate == 0) {
             endDate = new Date().getTime();
           }
-          const test = new Date(startDate);
-          console.log(test.toLocaleDateString());
+
          return [startDate, endDate];
         });
     
@@ -274,23 +267,57 @@ export default function RuntimeStats() {
         
         <h1 className="flex justify-center">Runtime Stats</h1>
         <div className="flex justify-center">
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 m-3 rounded" onClick={handleClick1}>
+          <button className="bg-cyan-600 hover:bg-cyan-800 text-cyan-50 font-bold py-2 px-4 m-3 rounded" onClick={handleClick1}>
             Series
           </button>
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 m-3 rounded" onClick={handleClick2}>
+          <button className="bg-cyan-600 hover:bg-cyan-800 text-cyan-50 font-bold py-2 px-4 m-3 rounded" onClick={handleClick2}>
             Movies
           </button>
         </div>
-          <div className="flex-column mb-20 mx-10">
+        <chartComponent showChart={showChart} chartData={chartData} movieData={movieData} />
+        <div className="flex-column mb-20 mx-10">
             <div id="bar" className={showChart === 'bar' ? 'visible' : 'hidden'}>
               <Bar options={options} data={chartData}/>
             </div>
             <div id="scatter" className={showChart === 'scatter' ? 'visible' : 'hidden'}>
               <Scatter options={options1} data={movieData}/>
             </div>
-          </div>
-        
+        </div>
       <GroupFooter />
     </>
   );
 }
+*/
+import React, { useState } from 'react';
+import { GroupFooter, NavBar } from "../components/general";
+import ChartComponent from '../components/runtime-stats/chartComponent';
+import ButtonToggle from '../components/runtime-stats/buttonToggle';
+import { FetchData } from '../components/runtime-stats/fetchData';
+
+const RuntimeStats = () => {
+  const [url] = useState('https://stapi.co/api/v1/rest/series/search');
+  const [url1] = useState('https://stapi.co/api/v1/rest/movie/search');
+  const [showChart, setShowChart] = useState('bar'); 
+  const { chartData, movieData } = FetchData(url, url1);
+
+  const handleClick1 = () => {
+    setShowChart('bar');
+  };
+
+  const handleClick2 = () => {
+    setShowChart('scatter');
+  };
+
+  return (
+    <>
+      <NavBar title={window.location.href} />
+      <h1 className="flex justify-center">Runtime Stats</h1>
+      <ButtonToggle handleClick1={handleClick1} handleClick2={handleClick2} />
+      <ChartComponent showChart={showChart} chartData={chartData} movieData={movieData} />
+      <GroupFooter />
+    </>
+  );
+};
+
+export default RuntimeStats;
+
