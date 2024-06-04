@@ -30,7 +30,7 @@ describe("Home Page Has Content", () => {
 
   test("Each <p> indicating additional messaging", async () => {
     const element = screen.getAllByText(
-      (_, element) => element.tagName.toLowerCase() === "p",
+      (_, element) => element !== null && element.tagName.toLowerCase() === "p",
     );
     expect(element[0].innerHTML).toContain(
       "As part of a final project for a class offered at Portland State Universities Computer Science department",
@@ -45,7 +45,8 @@ describe("Home Page Has Content", () => {
 
   test("Each <p> indicating additional messaging", async () => {
     const element = screen.getAllByText(
-      (_, element) => element.tagName.toLowerCase() === "li",
+      (_, element) =>
+        element !== null && element.tagName.toLowerCase() === "li",
     );
     expect(element[0].innerHTML).toContain(
       "on GitHub for taking the time to make this API",
