@@ -48,7 +48,7 @@ function filterShips(response: StapiResponse[]){
   }
 }
 
-const speciesToShipMap: { [key: string]: StapiResponse[] } = {
+export const speciesToShipMap: { [key: string]: StapiResponse[] } = {
   A: [],
   B: [],
   C: [],
