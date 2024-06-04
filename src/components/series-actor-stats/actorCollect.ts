@@ -24,7 +24,7 @@ export const ActorCollect = async (
   if (actorsToShowsMap["The Next Generation"].length === 0) {
     for (let i = 0; i < pageSize; i += 1) {
       const url =
-        "http://stapi.co/api/v2/rest/performer/search?pageSize=100&pageNumber=" +
+        "https://stapi.co/api/v2/rest/performer/search?pageSize=100&pageNumber=" +
         i;
       requests.push(
         axios
