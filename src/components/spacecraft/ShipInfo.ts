@@ -23,7 +23,7 @@ export default async function speciesSpacecraft() {
   for (let i = 0; i < 8; i+=1) {
     await axios
       .get(
-        "http://stapi.co/api/v2/rest/spacecraftClass/search?pageSize=100&pageNumber=" +
+        "https://stapi.co/api/v2/rest/spacecraftClass/search?pageSize=100&pageNumber=" +
           i
       )
       .then(response => {
