@@ -68,15 +68,17 @@ export const SpeciesSpacecraft = () => {
     <div data-testid="spacecraft-test">
       <NavBar title={window.location.href} />
       <h1 className="text-center mt-2 -mb-2">Species Spacecraft</h1>
-      <div id="alphaLinks">{alphalinks}</div>
-      <div id="letterSpecs">Displaying ships for these species: {alien}</div>
-      <div
-        id="letterShips"
-        className="row-start-2 row-span-5 col-start-2 col-span-10 border-4 overflow-y-scroll
-          rounded-lg max-h-40"
-      >
-        {shipStats}
-      </div>
+      <div id="alphaLinks" className="justify-around">{alphalinks}</div>
+      <section className="grid grid-cols-12 grid-rows-5 mt-5">
+        <div id="letterSpecs">Displaying ships for these species: {alien}</div>
+        <div
+          id="letterShips"
+          className="row-start-2 row-span-5 col-start-2 col-span-10 border-4 overflow-y-scroll
+            rounded-lg max-h-40"
+        >
+          {shipStats}
+        </div>
+      </section>
       <GroupFooter />
     </div>
   );
