@@ -18,8 +18,8 @@ export default function GroupFooter() {
         ...or visit our GitHubs!
       </div>
       <footer
-        className="text-lg font-semibold grid max-md:grid-cols-9 grid-cols-12 place-items-center
-          place-content-center"
+        className="text-lg mb-5 font-semibold grid max-md:grid-cols-9 grid-cols-12
+          place-items-center place-content-center"
       >
         <div className="max-md:col-start-3 max-md:col-end-4 col-start-5 col-end-6 text-center">
           <StyledLink href={melGH} text="Melissa">
