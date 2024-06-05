@@ -7,13 +7,13 @@ import getLetterList, { alpha } from "../components/spacecraft/SpeciesArrays";
 import { speciesToShipMap } from "../components/spacecraft/ShipInfo";
 
 const activeButtonStyle =
-  "border-3 text-black rounded-2xl p-2 text-sm sm:text-xs font-semibold sm:font-normal lg:font-bold \
+  "border-3 text-black rounded-2xl p-2 md:text-sm text-xs md:font-semibold font-normal lg:font-bold \
   transition-all duration-500 bg-gradient-to-tl to-orange-300 to-[80%] \
   via-purple-800 from-blue-200 from-20% bg-size-200 bg-pos-0 \
   hover:bg-pos-100";
 
 const buttonStyle =
-  "border-3 text-black rounded-2xl p-2 text-sm sm:text-xs font-semibold sm:font-normal\
+  "border-3 text-black rounded-2xl p-2 md:text-sm text-xs md:font-semibold font-normal\
   lg:font-bold transition-all duration-500 bg-gradient-to-tl via-orange-300 \
   from-purple-800 from-20% to-blue-200 to-[90%] bg-size-200 bg-pos-0 \
   hover:bg-pos-100";
