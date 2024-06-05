@@ -80,7 +80,7 @@ export const SpeciesSpacecraft = () => {
     <div data-testid="spacecraft-test">
       <NavBar title={window.location.href} />
       <h1 className="text-center mt-2 -mb-2">Species Spacecraft</h1>
-      <div id="alphaLinks" className="grid grid-cols-12 mt-3">
+      <div id="alphaLinks" className="grid grid-cols-12 mt-3 flex space-between">
         <div className="col-start-2 col-end-12">{alphalinks}</div>
       </div>
       <section className="grid grid-cols-12 grid-rows-5 mt-5">
