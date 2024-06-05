@@ -25,7 +25,7 @@ ChartJS.register(
   TimeScale
 );
 
-const ChartComponent = ({ showChart, chartData, movieData}:{chartData: ShowChartData, movieData: MovieChartData}) => {
+const ChartComponent = ({ showChart, chartData, movieData}:{chartData: ShowChartData, movieData: MovieChartData, showChart: string}) => {
     return (
         <div className="flex-column mb-20 mx-10">
             <div id="bar" className={showChart === 'bar' ? 'visible' : 'hidden'}>
