@@ -37,8 +37,8 @@ export const SpeciesSpacecraft = () => {
     for (let i = 0; i < alpha.length; i += 1) {
       alphalinks.push(
         <button
-          className={alpha[i] === buttonState ? activeButtonStyle : buttonStyle}
-          key={alpha[i]}
+          className = {alpha[i] === buttonState ? activeButtonStyle : buttonStyle}
+          key = {alpha[i]}
           onClick={() => handleAlphaButtonClick(alpha[i])}
         >
           {alpha[i]}
@@ -58,7 +58,7 @@ export const SpeciesSpacecraft = () => {
         if (craft !== null && craft.species !== null) {
           shipStats.push(
             <p>
-              Name: {craft.name} Warp Capability: {craft.warpCapable} Species:{" "}
+              Name: {craft.name} | Warp Capable: {craft.warpCapable} | Species:{" "}
               {craft.species.name}
             </p>,
           );
