@@ -81,7 +81,7 @@ export const SpeciesSpacecraft = () => {
       <NavBar title={window.location.href} />
       <h1 className="text-center mt-2 -mb-2">Species Spacecraft</h1>
       <div id="alphaLinks" className="grid grid-cols-12 mt-3">
-        <div className="col-start-2 col-end-12 flex justify-between">{alphalinks}</div>
+        <div className="col-start-2 col-end-12 flex justify-between wrap">{alphalinks}</div>
       </div>
       <section className="grid grid-cols-12 grid-rows-5 mt-5">
         <div className="col-start-2 col-end-12" id="letterSpecs">Displaying ships for these species: <div className="" id="list-of-species"></div></div>
