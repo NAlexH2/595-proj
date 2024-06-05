@@ -6,7 +6,7 @@ import ChartComponent from '../components/runtime-stats/chartComponent';
 import ButtonToggle from '../components/runtime-stats/buttonToggle';
 import { FetchData } from '../components/runtime-stats/fetchData';
 
-const RuntimeStats = () => {
+export const RuntimeStats = () => {
   const url = "https://stapi.co/api/v1/rest/series/search";
   const url1 = "https://stapi.co/api/v1/rest/movie/search";
   const [showChart, setShowChart] = useState('bar'); 
@@ -30,6 +30,4 @@ const RuntimeStats = () => {
     </>
   );
 };
-
-export default RuntimeStats;
 
