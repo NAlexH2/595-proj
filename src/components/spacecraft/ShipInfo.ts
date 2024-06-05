@@ -20,6 +20,7 @@ export interface StapiResponse{
 export const spaceCraftArray: StapiResponse[] = [];
 
 export default async function speciesSpacecraft() {
+  Object.values(speciesToShipMap).map(shipOfSpecies => shipOfSpecies.length=0);
   for (let i = 0; i < 8; i+=1) {
     await axios
       .get(
@@ -35,6 +36,7 @@ export default async function speciesSpacecraft() {
 }
 
 function filterShips(response: StapiResponse[]){
+  spaceCraftArray.length=0;
   for (let i=0; i<response.length; i+=1){
     if(response[i].species!==null){
       delete response[i].activeFrom;
