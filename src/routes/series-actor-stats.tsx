@@ -12,7 +12,7 @@ const activeButtonStyle =
   hover:bg-pos-100 uppercase";
 
 const buttonStyle =
-  "border-3 text-black me-4 rounded-2xl p-2 text-sm font-semibold \
+  "border-3 text-black rounded-2xl p-2 text-sm font-semibold \
   lg:font-bold transition-all duration-500 bg-gradient-to-tl via-orange-300 \
   from-purple-800 from-20% to-blue-200 to-[90%] bg-size-200 bg-pos-0 \
   hover:bg-pos-100";
