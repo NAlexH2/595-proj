@@ -74,7 +74,7 @@ export const options = {
         },
         ticks: {
           color: 'rgba(204,204,204,1)',
-          callback: function(value) {
+          callback: function(value: number) {
             return Number(value).toFixed(0);
           },
            },
