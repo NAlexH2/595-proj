@@ -35,7 +35,7 @@ This is a free API with no keys! It is perfect for making simple axios/fetch req
 - [React Router](https://reactrouter.com/en/main)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Axios](https://axios-http.com/docs/intro)
-- [Prettier]()
+- [Prettier](https://prettier.io/)
 - [Vitest](https://vitest.dev/)
 - [Jest](https://jestjs.io/)
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
